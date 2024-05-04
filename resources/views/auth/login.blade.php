@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en" class="material-style layout-fixed">
 <head>
-    <title>Participation citoyenne</title>
+    <title>PIGIER DOC</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,7 +10,7 @@
     <meta name="description" content="Bhumlu Bootstrap admin template made using Bootstrap 4, it has tons of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
     <meta name="keywords" content="Bhumlu, bootstrap admin template, bootstrap admin panel, bootstrap 4 admin template, admin template">
     <meta name="author" content="SoengSouy" />
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"> -->
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -50,7 +50,7 @@
                         <div class="ui-w-60">
                             <div class="w-100 position-relative">
                                 {{-- <img src="{{ asset('assets/front/img/star.png') }}" alt="Brand Logo" class="img-fluid"> --}}
-                                <a href="#" class="logo me-auto"><img src="{{asset('assetss/img/logocotonou.jpg')}}"  alt="Brand Logo" class="img-fluid" alt="" width="60px" > <span style="color:rgb(71, 165, 241)"></span> </a>
+                                <a href="#" class="logo me-auto"><img src="{{asset('assets/images/PIGIER.png')}}"  alt="Brand Logo" class="img-fluid" alt="" width="60px" > <span style="color:rgb(71, 165, 241)"></span> </a>
 
                                 <br>
 

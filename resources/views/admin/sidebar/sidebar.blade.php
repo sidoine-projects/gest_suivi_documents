@@ -60,7 +60,7 @@
                     <a href="javascript:" class="sidenav-link sidenav-toggle">
                         {{-- <i class="sidenav-icon feather icon-cloud-lightning"></i> --}}
                         <i class="sidenav-icon feather icon-folder"></i>
-                        <div> Catégorie</div>
+                        <div> Profil</div>
                     </a>
 
                     <ul class="sidenav-menu">
@@ -68,7 +68,14 @@
                             <!-- route n'existe pas sans le name du web.php-->
                             <a href="{{ route('categories') }}" class="sidenav-link">
                                 <i class="sidenav-icon feather icon-edit"></i>
-                                <div>Catégorie</div>
+                                <div>Ajouter</div>
+                            </a>
+                        </li>
+                        <li class="sidenav-item">
+                            <!-- route n'existe pas sans le name du web.php-->
+                            <a href="{{ route('categories') }}" class="sidenav-link">
+                                <i class="sidenav-icon feather icon-edit"></i>
+                                <div>Liste</div>
                             </a>
                         </li>
 
@@ -81,7 +88,7 @@
                     <!-- route n'existe pas sans le name du web.php-->
                     <a href="javascript:" class="sidenav-link sidenav-toggle">
                         <i class="sidenav-icon feather icon-file-minus"></i>
-                        <div>Thématique</div>
+                        <div>Types Pieces</div>
                     </a>
                     <ul class="sidenav-menu">
                         <li class="sidenav-item">

@@ -19,7 +19,7 @@
         <div class="text-muted small mt-0 mb-4 d-block breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('admin/home')}}"><i class="feather icon-home"></i></a></li>
-                <li class="breadcrumb-item">Catégorie</li>
+                <li class="breadcrumb-item">P</li>
 
             </ol>
         </div>
@@ -76,24 +76,22 @@
             </div>
             <div class="col-md-6">
                 <div class="card mb-4">
-                    <h6 class="card-header"><i class="feather icon-user"></i> Liste Categorie</h6>
+                    <h6 class="card-header"><i class="feather icon-user"></i> Liste Profils </h6>
 
                     <div class="card-body">
 
                         <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
                             <thead>
                             <tr>
-                                <th>Code</th>
-                                <th>Catégorie</th>
+                                <th>Profil</th>
                                 <th>Action</th>
 
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach ($categories as $item)
+                            @foreach ($profils as $item)
                                 <tr>
-                                    <td class="id">{{ $item->code }}</td>
-                                    <td class="id">{{ $item->categorie }}</td>
+                                    <td class="id">{{ $item->profil }}</td>
                                     <td class="text-center">
                                         <a href="{{ url('admin/categorie/update/'.$item->id) }}" class="m-r-15 text-muted userUpdate">
                                             <i class="fa fa-edit" style="color: #2196f3;"></i>

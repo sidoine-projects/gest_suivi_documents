@@ -187,6 +187,15 @@ Route::get('admin/categorie/update/{id}', [App\Http\Controllers\CategorieControl
 Route::post('admin/categorie/edit', [App\Http\Controllers\CategorieController::class, 'edit'])->name('categorie/edit'); //Enregistrer departement
 Route::get('admin/categorie/delete/{id}', [App\Http\Controllers\CategorieController::class, 'delete']);
 
+//Important -----------------------------profils-----------------------------------------
+//Route::get('profils/new', [App\Http\Controllers\ProfilController::class, 'create'])->name('profils/new'); //New departement
+Route::get('admin/profils', [App\Http\Controllers\ProfilController::class, 'index'])->name('profils'); // Liste departement
+Route::post('admin/profils/save', [App\Http\Controllers\ProfilController::class, 'save'])->name('profils/save'); //Enregistrer departement
+//Route::post('departements/edit', [App\Http\Controllers\DepartementController::class, 'edit'])->name('departements/edit'); //Enregistrer departement
+Route::get('admin/profils/update/{id}', [App\Http\Controllers\ProfilController::class, 'update']); //Modifier departement
+Route::post('admin/profils/edit', [App\Http\Controllers\ProfilController::class, 'edit'])->name('profils/edit'); //Enregistrer departement
+Route::get('admin/profils/delete/{id}', [App\Http\Controllers\ProfilController::class, 'delete']);
+
 // -----------------------------thematique-----------------------------------------
 
 //Route::get('categorie/new', [App\Http\Controllers\categorieController::class, 'create'])->name('categorie/new'); //New departement

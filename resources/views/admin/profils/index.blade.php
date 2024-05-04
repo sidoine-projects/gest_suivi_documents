@@ -5,7 +5,7 @@
         <!-- Brand demo (see assets/css/demo/demo.css) -->
         <div class="app-brand demo">
             <span class="app-brand-logo demo">
-                <img src="{{URL::to('assets/front/img/logo11.png')}}" alt="Brand Logo" class="img-fluid">
+                <img src="{{asset('assets/img/logo-thumb.png')}}" alt="Brand Logo" class="img-fluid">
             </span>
             <a href="{{ route('home') }}" class="app-brand-text demo sidenav-text font-weight-normal ml-2">{{ Auth::user()->name }}</a>
             <a href="javascript:" class="layout-sidenav-toggle sidenav-link text-large ml-auto">
@@ -19,7 +19,7 @@
 
             <!-- Dashboards -->
             <li class="sidenav-item">
-                <a href="{{ route('admin/home') }}" class="sidenav-link">
+                <a href="{{ route('home') }}" class="sidenav-link">
                     <i class="sidenav-icon feather icon-home"></i>
                     <div>Dashboards</div>
                     @if(Auth::user()->role_name == 'Admin')
@@ -146,34 +146,21 @@
                 <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Full Name</th>
-                            <th>Email Address</th>
-                            <th>Gender</th>
-                            <th>Country</th>
-                            <th>Phone Number</th>
-                            <th>Facebook Name</th>
-                            <th>Youtube Name</th>
-                            <th>Modify</th>
+                            <th>code</th>
+                            <th>Categorie</th>
 
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data as $item)
+                        @foreach ($categories as $item)
                             <tr>
-                                <td class="id">{{ $item->rec_id }}</td>
-                                <td class="id">{{ $item->name }}</td>
-                                <td class="id">{{ $item->email }}</td>
-                                <td class="id">{{ $item->sex }}</td>
-                                <td class="id">{{ $item->country }}</td>
-                                <td class="id">{{ $item->phone }}</td>
-                                <td class="id">{{ $item->facebook_name }}</td>
-                                <td class="id">{{ $item->youtube_name }}</td>
+                                <td class="id">{{ $item->code }}</td>
+                                <td class="id">{{ $item->libelle }}</td>
                                 <td class="text-center">
-                                    <a href="{{ url('form/view/update/'.$item->id) }}" class="m-r-15 text-muted userUpdate">
+                                    <a href="{{ url('categorie/update/'.$item->id) }}" class="m-r-15 text-muted userUpdate">
                                         <i class="fa fa-edit" style="color: #2196f3;"></i>
                                     </a>
-                                    <a href="{{ url('form/delete/'.$item->id) }}" onclick="return confirm('Are you sure to want to delete it?')"><i class="fa fa-trash" style="color: red;"></i></a>
+                                    <a href="{{ url('categorie/delete/'.$item->id) }}" onclick="return confirm('Are you sure to want to delete it?')"><i class="fa fa-trash" style="color: red;"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -320,220 +307,6 @@
     </div>
 </div>
 <!-- End Modal Update-->
-
-
-
-<li class="sidenav-header small font-weight-semibold">PARAMTRE</li>
-
-
-@if(Auth::user()->role_name == 'Admin')
-    <li class="sidenav-item">
-        <a href="javascript:" class="sidenav-link sidenav-toggle">
-            <i class="sidenav-icon fa fa-user"></i>
-            <div>User Management</div>
-        </a>
-        <ul class="sidenav-menu">
-            <li class="sidenav-item">
-                <a href="{{ route('role/user/view') }}" class="sidenav-link">
-                    <div>User Role</div>
-                </a>
-            </li>
-        </ul>
-    </li>
-@endif
-
-<li class="sidenav-item">
-    <a href="javascript:" class="sidenav-link sidenav-toggle">
-        <i class="sidenav-icon feather icon-clipboard"></i>
-        <div>CATEGORIE</div>
-    </a>
-    <ul class="sidenav-menu">
-        <li class="sidenav-item">
-            <!-- route n'existe pas sans le name du web.php-->
-            <a href="{{ route('categorie/new') }}" class="sidenav-link">
-                <div>NOUVELLE</div>
-            </a>
-        </li>
-    </ul>
-    <ul class="sidenav-menu">
-        <li class="sidenav-item">
-            <a href="{{ route('categories') }}" class="sidenav-link">
-                <div>DETAIL</div>
-            </a>
-        </li>
-    </ul>
-</li>
-
-<li class="sidenav-item">
-    <a href="javascript:" class="sidenav-link sidenav-toggle">
-        <i class="sidenav-icon feather icon-clipboard"></i>
-        <div>MODALITE CATEGORIE</div>
-    </a>
-    <ul class="sidenav-menu">
-        <li class="sidenav-item">
-            <!-- route n'existe pas sans le name du web.php-->
-            <a href="{{ route('modalite_categorie/new') }}" class="sidenav-link">
-                <div>NOUVELLE</div>
-            </a>
-        </li>
-    </ul>
-    <ul class="sidenav-menu">
-        <li class="sidenav-item">
-            <a href="{{ route('modalite_categories') }}" class="sidenav-link">
-                <div>DETAIL</div>
-            </a>
-        </li>
-    </ul>
-</li>
-
-<li class="sidenav-item">
-    <a href="javascript:" class="sidenav-link sidenav-toggle">
-        <i class="sidenav-icon feather icon-clipboard"></i>
-        <div>DEPARTEMENT</div>
-    </a>
-    <ul class="sidenav-menu">
-        <li class="sidenav-item">
-            <!-- route n'existe pas sans le name du web.php-->
-            <a href="{{ route('departement/new') }}" class="sidenav-link">
-                <div>NOUVEAU</div>
-            </a>
-        </li>
-    </ul>
-    <ul class="sidenav-menu">
-        <li class="sidenav-item">
-            <a href="{{ route('departements') }}" class="sidenav-link">
-                <div>DETAIL</div>
-            </a>
-        </li>
-    </ul>
-
-</li>
-<li class="sidenav-item">
-    <a href="javascript:" class="sidenav-link sidenav-toggle">
-        <i class="sidenav-icon feather icon-clipboard"></i>
-        <div>COMMUNE</div>
-    </a>
-    <ul class="sidenav-menu">
-        <li class="sidenav-item">
-            <a href="{{ route('commune/new') }}" class="sidenav-link">
-                <div>NOUVEAU</div>
-            </a>
-        </li>
-    </ul>
-    <ul class="sidenav-menu">
-        <li class="sidenav-item">
-            <a href="{{ route('communes') }}" class="sidenav-link">
-                <div>DETAIL</div>
-            </a>
-        </li>
-    </ul>
-
-</li>
-<li class="sidenav-item">
-    <a href="javascript:" class="sidenav-link sidenav-toggle">
-        <i class="sidenav-icon feather icon-clipboard"></i>
-        <div>DIMENSION</div>
-    </a>
-    <ul class="sidenav-menu">
-        <li class="sidenav-item">
-            <a href="{{ route('dimension/new')  }}" class="sidenav-link">
-                <div>NOUVEAU</div>
-            </a>
-        </li>
-    </ul>
-    <ul class="sidenav-menu">
-        <li class="sidenav-item">
-            <a href="{{  route('dimensions') }}" class="sidenav-link">
-                <div>DETAIL</div>
-            </a>
-        </li>
-    </ul>
-
-</li>
-<li class="sidenav-item">
-    <a href="javascript:" class="sidenav-link sidenav-toggle">
-        <i class="sidenav-icon feather icon-clipboard"></i>
-        <div>NIVEAU INSTRUCTION</div>
-    </a>
-    <ul class="sidenav-menu">
-        <li class="sidenav-item">
-            <a href="{{ route('niveau_instruction/new') }}" class="sidenav-link">
-                <div>NOUVEAU</div>
-            </a>
-        </li>
-    </ul>
-    <ul class="sidenav-menu">
-        <li class="sidenav-item">
-            <a href="{{ route('niveau_instructions') }}" class="sidenav-link">
-                <div>DETAIL</div>
-            </a>
-        </li>
-    </ul>
-
-</li>
-<li class="sidenav-item">
-    <a href="javascript:" class="sidenav-link sidenav-toggle">
-        <i class="sidenav-icon feather icon-clipboard"></i>
-        <div>MILIEU RESIDENCE</div>
-    </a>
-    <ul class="sidenav-menu">
-        <li class="sidenav-item">
-            <a href="{{ route('milieu_residence/new') }}" class="sidenav-link">
-                <div>NOUVEAU</div>
-            </a>
-        </li>
-    </ul>
-    <ul class="sidenav-menu">
-        <li class="sidenav-item">
-            <a href="{{ route('milieu_residences') }}" class="sidenav-link">
-                <div>DETAIL</div>
-            </a>
-        </li>
-    </ul>
-
-</li>
-<li class="sidenav-item">
-    <a href="javascript:" class="sidenav-link sidenav-toggle">
-        <i class="sidenav-icon feather icon-clipboard"></i>
-        <div>ANNEE</div>
-    </a>
-    <ul class="sidenav-menu">
-        <li class="sidenav-item">
-            <a href="{{ route('annee/new') }}" class="sidenav-link">
-                <div>NOUVEAU</div>
-            </a>
-        </li>
-    </ul>
-    <ul class="sidenav-menu">
-        <li class="sidenav-item">
-            <a href="{{ route('annees') }}" class="sidenav-link">
-                <div>DETAIL</div>
-            </a>
-        </li>
-    </ul>
-
-</li>
-<li class="sidenav-item">
-    <a href="javascript:" class="sidenav-link sidenav-toggle">
-        <i class="sidenav-icon feather icon-clipboard"></i>
-        <div>SEXE</div>
-    </a>
-    <ul class="sidenav-menu">
-        <li class="sidenav-item">
-            <a href="{{ route('sexe/new') }}" class="sidenav-link">
-                <div>NOUVEAU</div>
-            </a>
-        </li>
-    </ul>
-    <ul class="sidenav-menu">
-        <li class="sidenav-item">
-            <a href="{{ route('sexes') }}" class="sidenav-link">
-                <div>DETAIL</div>
-            </a>
-        </li>
-    </ul>
-
-</li>
 
 
 <!-- [ Layout content ] Start -->

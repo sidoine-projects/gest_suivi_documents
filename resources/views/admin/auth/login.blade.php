@@ -33,7 +33,7 @@
     <!-- Page -->
     <link rel="stylesheet" href="{{asset('assets/css/pages/authentication.css')}} ">
 </head>
-
+ 
 <body>
     <!-- [ Preloader ] Start -->
     <div class="page-loader">
