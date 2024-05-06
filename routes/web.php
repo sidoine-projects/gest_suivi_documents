@@ -36,6 +36,40 @@ Auth::routes();
 
 
 
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+|Nouveau Changement a ne pas supprimer
+
+|
+*/
+
+
+Route::get('/regis', function () {
+    return view('auth.regis');
+})->name('regis');
+
+
+Route::get('/log', function () {
+    return view('auth.log');
+})->name('log');
+
+Route::get('/forgot', function () {
+    return view('auth.forgot');
+})->name('forgot');
+
+
+
+
+
+
+
+
+
+
+
 
 
 Route::get('/formation', function () {
