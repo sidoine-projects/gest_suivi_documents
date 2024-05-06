@@ -102,7 +102,7 @@
                     <!-- Brand demo (see assets/css/demo/demo.css) -->
                     <a href="index.html" class="navbar-brand app-brand demo d-lg-none py-0 mr-4">
                         <span class="app-brand-logo demo">
-                            <img src="{{ asset('assetss/img/logocotonou.jpg') }}" alt="Brand Logo"
+                            <img src="{{ asset('assets/images/logo-pigier.PNG') }}" alt="Brand Logo"
                                 class="img-fluid" width="30">
                         
                         </span>
@@ -317,12 +317,12 @@
                     <div class="container-fluid d-flex flex-wrap justify-content-between text-center container-p-x pb-3">
                         <div class="pt-3">
                             <span class="footer-text font-weight-semibold">&copy; <a href="http://star-labs.bj/"
-                                    class="footer-link" target="_blank">Mairie de Cotonou </a></span>
+                                    class="footer-link" target="_blank">PIGIER DOC - All right reserved</a></span>
                         </div>
                         <div>
                             {{-- <a href="javascript:" class="footer-link pt-3"></a> --}}
                             <a href="#" class="footer-link pt-3 ml-4"><?php $Year = date('Y'); ?> {{ $Year }}</a>
-                            <a href="#" class="footer-link pt-3 ml-4">Contact</a>
+                            {{-- <a href="#" class="footer-link pt-3 ml-4">All right reserved</a> --}}
                             {{-- <a href="javascript:" class="footer-link pt-3 ml-4">Terms &amp; Conditions</a> --}}
                         </div>
                     </div>

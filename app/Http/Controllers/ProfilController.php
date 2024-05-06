@@ -24,20 +24,20 @@ class ProfilController extends Controller
     //
     //$Profils = Profil::latest()->get();
     $profils = Profil::all();
-    return view("admin.profils.profil", compact("profils"));
+    return view("admin.profils.index", compact("profils"));
   }
   /**
    * Show the form for creating a new resource.
    *
    * @return \Illuminate\Http\Response
    */
-  /*
+  
     public function create()
     {
         //
-        $Profils = Profil::all();
-        return view('Profils.Profil', compact("Profils"));
-    }*/
+       
+        return view('admin.profils.profil');
+    }
 
   /**
    * Store a newly created resource in storage.
