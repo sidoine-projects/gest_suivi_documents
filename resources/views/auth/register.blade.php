@@ -1,8 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en" class="material-style layout-fixed">
+
 <head>
-    <title>Participation citoyenne</title>
+    <title>Gestion suivi demandes</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -42,89 +42,125 @@
     <!-- [ Preloader ] End -->
 
     <!-- [ content ] Start -->
-    <div class="authentication-wrapper authentication-1 px-4">
-        <div class="authentication-inner py-5 card card-body">
+    <div class="container authentication-1 px-4 ">
+        <div class="authentication-inner py-5 card card-body col-sm-12">
 
             <!-- [ Logo ] Start -->
             <div class="d-flex justify-content-center align-items-center">
                 <div class="ui-w-60">
                     <div class="w-100 position-relative">
                         {{-- <img src="{{ asset('assets/front/img/star.png') }}" alt="Brand Logo" class="img-fluid"> --}}
-                        <a href="#" class="logo me-auto"><img src="{{ asset('assets/images/PIGIER.PNG') }}"  alt="Brand Logo" class="img-fluid" alt="" width="60px" > <span style="color:rgb(71, 165, 241)"></span> </a>
+                        <a href="#" class=""><img src="{{ asset('assets/images/PIGIER.PNG') }}" alt="Brand Logo" class="img-fluid" alt="" style="width:200px !important;"> <span style="color:rgb(71, 165, 241)"></span> </a>
+                        
 
                         <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
-            <h5 class="m-auto">Participation citoyenne à cotonou</h5>
+            <h5 class="mt-4 py-4 m-auto">Gestion suivi demandes</h5>
 
             <!-- [ Logo ] End -->
 
             <!-- [ Form ] Start -->
             <form method="POST" action="{{ route('register') }}" class="my-5">
                 @csrf
-                <div class="form-group">
-                    <label class="form-label">Nom</label>
-                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus  placeholder="Username">
-                    @error('name')
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label class="form-label">Nom</label>
+                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus placeholder="Username">
+                        @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                    @enderror
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Prénom</label>
-                    <input id="prename" type="text" class="form-control @error('prename') is-invalid @enderror" name="prename" value="{{ old('prename') }}" autocomplete="prename" autofocus  placeholder="Prénom">
-                    @error('prename')
+                        @enderror
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="form-label">Prénom</label>
+                        <input id="prename" type="text" class="form-control @error('prename') is-invalid @enderror" name="prename" value="{{ old('prename') }}" autocomplete="prename" autofocus placeholder="Prénom">
+                        @error('prename')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                    @enderror
-                    <div class="clearfix"></div>
+                        @enderror
+                        <div class="clearfix"></div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-label">Email</label>
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" placeholder="Entrer votre email">
-                    @error('email')
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label class="form-label">Email</label>
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" placeholder="Entrer votre email">
+                        @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                    @enderror
-                    <div class="clearfix"></div>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Téléphone</label>
-                    <input id="tel" type="tel" class="form-control @error('tel') is-invalid @enderror" name="tel" value="{{ old('tel') }}" autocomplete="tel" placeholder="Votre Téléphone">
-                    @error('tel')
+                        @enderror
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="form-label">Téléphone</label>
+                        <input id="tel" type="tel" class="form-control @error('tel') is-invalid @enderror" name="tel" value="{{ old('tel') }}" autocomplete="tel" placeholder="Votre Téléphone">
+                        @error('tel')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                    @enderror
-                    <div class="clearfix"></div>
+                        @enderror
+                        <div class="clearfix"></div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-label">Password</label>
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password" placeholder="Enter password">
-                    @error('password')
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label class="form-label">Adresse</label>
+                        <input id="adresse" type="text" class="form-control @error('adresse') is-invalid @enderror" name="adresse" value="{{ old('adresse') }}" autocomplete="adresse" placeholder="Entrer votre adresse">
+                        @error('adresse')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                    @enderror
-                    <div class="clearfix"></div>
+                        @enderror
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="form-label">Profil</label>
+                        <select class="form-control" name="profil" id="profil" required>
+                            <option value="0">Selectionner un Profil</option>
+                            <option value="1">Etudiant</option>
+                            <option value="2">Enseignant</option>
+
+
+                        </select>
+                        @error('tel')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                        <div class="clearfix"></div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-label">Password Confirmation</label>
-                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password" placeholder="Password confirmation">
-                    <div class="clearfix"></div>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label class="form-label">Password</label>
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password" placeholder="Enter password">
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="form-label">Password Confirmation</label>
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password" placeholder="Password confirmation">
+                        <div class="clearfix"></div>
+                    </div>
                 </div>
+
                 {{-- <button type="submit" class="btn btn-primary btn-block mt-4">ENREGISTRER</button> --}}
                 <div class="row  text-center d-flex justify-content-between align-items-center m-0 ">
                     <a href="{{ redirect()->back()->getTargetUrl() }}" class="btn btn-danger ">RETOUR</a>
 
                     <button onclick="return confirm('voulez vous enrégistrer ?')" type="submit" class="btn btn-primary  ">ENREGISTRER</button>
                 </div>
-              
+
 
                 {{-- <div class="bg-lightest text-muted small p-2 mt-4">
                     By clicking "Sign Up", you agree to our
