@@ -3,8 +3,8 @@
     <!-- Brand demo (see assets/css/demo/demo.css) -->
     <div class="app-brand demo " >
         <span class=" demo " >
-            <img width="30" src="{{ asset('assetss/img/logocoutonou.jpg') }}" alt="Brand Logo" class="img-fluid">
-            {{-- {{ asset('assetss/img/logocotonou.jpg') }} --}}
+            <img width="30" src="{{ asset('assets/images/logo-pigier.PNG') }}" alt="Brand Logo" class="img-fluid">
+    
         </span>
         <a href="#"
             class="app-brand-text demo sidenav-text font-weight-normal ml-2">{{ Auth::user()->name }}</a>
@@ -66,14 +66,14 @@
                     <ul class="sidenav-menu">
                         <li class="sidenav-item">
                             <!-- route n'existe pas sans le name du web.php-->
-                            <a href="{{ route('categories') }}" class="sidenav-link">
+                            <a href="{{route('profil/new')}}" class="sidenav-link">
                                 <i class="sidenav-icon feather icon-edit"></i>
                                 <div>Ajouter</div>
                             </a>
                         </li>
                         <li class="sidenav-item">
                             <!-- route n'existe pas sans le name du web.php-->
-                            <a href="{{ route('categories') }}" class="sidenav-link">
+                            <a href="{{route('profils')}}" class="sidenav-link">
                                 <i class="sidenav-icon feather icon-edit"></i>
                                 <div>Liste</div>
                             </a>
@@ -93,9 +93,9 @@
                     <ul class="sidenav-menu">
                         <li class="sidenav-item">
                             <!-- route n'existe pas sans le name du web.php-->
-                            <a href="{{ route('thematiques') }}" class="sidenav-link">
+                            <a href="{{route('profil')}}" class="sidenav-link">
                                 <i class="sidenav-icon feather icon-edit"></i>
-                                <div>Thématique</div>
+                                <div>Ajouter</div>
                             </a>
                         </li>
 
@@ -127,130 +127,6 @@
             </ul>
         </li>
    
-
-        
-        <li class="sidenav-item">
-            <a href="javascript:" class="sidenav-link sidenav-toggle">
-                <i class="sidenav-icon feather icon-file-text"></i>
-                <div>Actualités</div>
-            </a>
-            <ul class="sidenav-menu">
-                <li>
-                    <!-- route n'existe pas sans le name du web.php-->
-                    <a href="{{route('admin/actualites/new')}}" class="sidenav-link  ">
-                        {{-- <i class="sidenav-icon feather icon-cloud-lightning"></i> --}}
-                <i class="sidenav-icon feather icon-file-text"></i>
-
-                        <div>Actualités</div>
-                    </a>
-                </li>
-
-                
-                <li>
-                    <!-- route n'existe pas sans le name du web.php-->
-                    <a href="{{route('admin/actualites')}}" class="sidenav-link  ">
-                        {{-- <i class="sidenav-icon feather icon-cloud-lightning"></i> --}}
-                        <i class="sidenav-icon feather icon-list"></i>
-
-                        <div>Liste</div>
-                    </a>
-                </li>
-
-           
-            </ul>
-
-        </li>
-
-        <li class="sidenav-item">
-            <a href="javascript:" class="sidenav-link sidenav-toggle">
-                <i class="sidenav-icon feather icon-alert-triangle"></i>
-                <div>Signalement</div>
-            </a>
-            <ul class="sidenav-menu">
-                <li>
-                    <!-- route n'existe pas sans le name du web.php-->
-                    <a href="{{route('admin/signalisations')}}" class="sidenav-link  ">
-                        {{-- <i class="sidenav-icon feather icon-cloud-lightning"></i> --}}
-                <i class="sidenav-icon feather icon-alert-triangle"></i>
-
-                        <div>Signalisation</div>
-                    </a>
-                </li>
-
-               
-            </ul>
-
-        </li>
-        <li class="sidenav-item">
-            <a href="javascript:" class="sidenav-link sidenav-toggle">
-                <i class="sidenav-icon feather icon-bar-chart"></i>
-                <div>Sondage / enquête</div>
-            </a>
-            <ul class="sidenav-menu">
-                <li>
-                    <!-- route n'existe pas sans le name du web.php-->
-                    <a href="{{url('admin/survey')}}" class="sidenav-link  ">
-                <i class="sidenav-icon feather icon-bar-chart"></i>
-
-                        {{-- <i class="sidenav-icon feather icon-cloud-lightning"></i> --}}
-                        <div>Sondage/enquête</div>
-                    </a>
-                </li>
-
-               
-            </ul>
-
-        </li>
-
-         {{--<li class="sidenav-item">
-            <a href="javascript:" class="sidenav-link sidenav-toggle">
-                <i class="sidenav-icon feather icon-clipboard"></i>
-                <div>Préférence User</div>
-            </a>
-            <ul class="sidenav-menu">
-                <li>
-                    <!-- route n'existe pas sans le name du web.php-->
-                    <a href="#" class="sidenav-link  ">
-                        {{-- <i class="sidenav-icon feather icon-cloud-lightning"></i> 
-                        <div>Préférence</div>
-                    </a>
-                </li>
-
-               
-            </ul>
-
-        </li>  --}}
-
-
-{{--         
-        <li class="sidenav-item">
-            <a href="javascript:" class="sidenav-link sidenav-toggle">
-                <i class="sidenav-icon feather icon-user-check"></i>
-                <div>Module ABONNEE</div>
-            </a>
-            <ul class="sidenav-menu">
-                <li>
-                  
-                    <a href="#" class="sidenav-link  ">
-                <i class="sidenav-icon feather icon-user-check"></i>
-
-                        <div>Abonnés</div>
-                    </a>
-                </li>
-
-                <li>
-
-                    <a href="#" class="sidenav-link  ">
-                <i class="sidenav-icon feather icon-list"></i>
-
-                        <div>Liste</div>
-                    </a>
-                </li>
-            </ul>
-        </li> --}}
-
-
-
 
     </ul>
 </div>

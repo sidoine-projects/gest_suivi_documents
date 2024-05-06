@@ -50,7 +50,7 @@
                 <div class="ui-w-60">
                     <div class="w-100 position-relative">
                         {{-- <img src="{{ asset('assets/front/img/star.png') }}" alt="Brand Logo" class="img-fluid"> --}}
-                        <a href="#" class="logo me-auto"><img src="{{asset('assetss/img/logocotonou.jpg')}}"  alt="Brand Logo" class="img-fluid" alt="" width="60px" > <span style="color:rgb(71, 165, 241)"></span> </a>
+                        <a href="#" class="logo me-auto"><img src="{{ asset('assets/images/PIGIER.PNG') }}"  alt="Brand Logo" class="img-fluid" alt="" width="60px" > <span style="color:rgb(71, 165, 241)"></span> </a>
 
                         <div class="clearfix"></div>
                     </div>

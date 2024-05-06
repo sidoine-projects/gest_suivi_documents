@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use AidynMakhataev\LaravelSurveyJs\app\Models\Survey;
 use App\Http\Controllers\Controller;
-use App\Models\ActualiteAdmin;
-use App\Models\Signalisation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,7 +34,7 @@ class HomeController extends Controller
         $totalSondage = 0;
         $totalActualite = 0;
         //dd( $totalSondage);
-        $actualites = ActualiteAdmin::orderBy('id', 'Desc')->get();
+        $actualites = 10;
 
         //$annee = User::select('created_at')->get();
         $years = User::select( DB::raw("(DATE_FORMAT(created_at, '%Y')) as year"))

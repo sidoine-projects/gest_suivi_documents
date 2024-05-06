@@ -15,20 +15,20 @@
 <div class="layout-content">
     <!-- [ content ] Start -->
     <div class="container-fluid flex-grow-1 container-p-y">
-        <h4 class="font-weight-bold py-3 mb-0">Catégorie</h4>
+        <h4 class="font-weight-bold py-3 mb-0">Ajouter un profil</h4>
         <div class="text-muted small mt-0 mb-4 d-block breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('admin/home')}}"><i class="feather icon-home"></i></a></li>
-                <li class="breadcrumb-item">P</li>
+                <li class="breadcrumb-item">Profil</li>
 
             </ol>
         </div>
 
         <div class="row">
 
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="card mb-4">
-                    <h6 class="card-header"><i class="feather icon-user"></i> Catégorie Information</h6>
+                    <h6 class="card-header"><i class="feather icon-user"></i> Profil Information</h6>
 
                     <div class="card-body">
 
@@ -63,51 +63,16 @@
 
 
                             <div class="form-group row">
-                                <label class="col-form-label col-sm-2 text-sm-right"></label>
-                                <div class="col-sm-10">
-                                    <button type="submit" class="btn btn-primary">Enregistrer</button>
-                                    <button type="reset" class="btn btn-danger">Annuler</button>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
+                              <label class="col-form-label col-sm-2 text-sm-right"></label>
+                              <div class="col-sm-10 d-flex justify-content-between align-items-center"> <!-- Utilisation de Flexbox -->
+                                  <button type="reset" class="btn btn-danger">Annuler</button> <!-- Bouton "Annuler" à gauche -->
+                                  <button type="submit" class="btn btn-primary">Enregistrer</button> <!-- Bouton "Enregistrer" à droite -->
+                              </div>
+                          </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card mb-4">
-                    <h6 class="card-header"><i class="feather icon-user"></i> Liste Profils </h6>
-
-                    <div class="card-body">
-
-                        <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
-                            <thead>
-                            <tr>
-                                <th>Profil</th>
-                                <th>Action</th>
-
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach ($profils as $item)
-                                <tr>
-                                    <td class="id">{{ $item->profil }}</td>
-                                    <td class="text-center">
-                                        <a href="{{ url('admin/categorie/update/'.$item->id) }}" class="m-r-15 text-muted userUpdate">
-                                            <i class="fa fa-edit" style="color: #2196f3;"></i>
-                                        </a>
-                                        <a href="{{ url('admin/categorie/delete/'.$item->id) }}" onclick="return confirm('Are you sure to want to delete it?')"><i class="fa fa-trash" style="color: red;"></i></a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-
-                    </div>
-                </div>
-            </div>
-
-
         </div>
 
 

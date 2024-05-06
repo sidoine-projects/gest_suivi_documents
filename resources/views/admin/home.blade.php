@@ -62,7 +62,7 @@
                                     </div>
 
                                     <div id="" class="mt-3 " style="height:40px"><a
-                                            href="{{ route('admin/signalisations') }}"> En savoir + </a></div>
+                                            href="#"> En savoir + </a></div>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                                     </div>
 
                                     <div id="" class="mt-3 " style="height:40px"><a
-                                            href="{{ url('admin/survey') }}"> Créer un sondage <br> /Enquête </a></div>
+                                            href="#"> Créer un sondage <br> /Enquête </a></div>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +99,7 @@
                                     </div>
 
                                     <div id="" class="mt-3 " style="height:40px"><a
-                                            href="{{ route('admin/actualites/new') }}"> En savoir + </a></div>
+                                            href="#"> En savoir + </a></div>
                                 </div>
                             </div>
                         </div>
