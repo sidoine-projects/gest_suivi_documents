@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use AidynMakhataev\LaravelSurveyJs\app\Models\Survey;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Illuminate\Queue\Console\RetryCommand;
+
 class HomeController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('admin');
+     $this->middleware('admin');
 
        // $this->middleware('Auth');
     }
@@ -24,8 +25,10 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-  
-
+     public function home()
+     {
+        return view('admin/site/index');
+    }
     public function index()
     {
         //

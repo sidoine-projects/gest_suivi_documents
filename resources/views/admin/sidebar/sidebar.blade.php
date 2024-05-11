@@ -93,7 +93,7 @@
                     <ul class="sidenav-menu">
                         <li class="sidenav-item">
                             <!-- route n'existe pas sans le name du web.php-->
-                            <a href="{{route('profil')}}" class="sidenav-link">
+                            <a href="{{route('profil/new')}}" class="sidenav-link">
                                 <i class="sidenav-icon feather icon-edit"></i>
                                 <div>Ajouter</div>
                             </a>

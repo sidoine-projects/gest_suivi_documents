@@ -80,14 +80,14 @@ class LoginController extends Controller
                   
                  $id = Auth::user()->id;
                   DB::update('update users set status = ? where id = ?',[1, $id]);
-                    return redirect()->route('home');
+                    return redirect()->route('admin/home');
                    
 
                    // {{ redirect()->back()->getTargetUrl() }}
 
                     break;
                 default:
-                return redirect()->route('home');
+                return redirect()->route('admin/home');
             }
 
            ;
@@ -104,6 +104,6 @@ class LoginController extends Controller
         $id = Auth::user()->id;
         DB::update('update users set status = ? where id = ?',[0, $id]);
         Auth::logout();
-        return redirect()->route('home');
+        return redirect()->route('login');
     }
 }

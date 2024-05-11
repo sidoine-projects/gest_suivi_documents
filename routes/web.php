@@ -22,15 +22,9 @@ use App\Http\Controllers\UserManagementController;
 Auth::routes();
 
 
-Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('dashboard');
+Route::get('/', [App\Http\Controllers\Admin\SiteController::class, 'home'])->name('site');
 
-Route::get('/profil', [App\Http\Controllers\HomeController::class, 'profil'])->name('profil');
-
-Route::post('/', [App\Http\Controllers\HomeController::class, 'filtre'])->name('filtre');
-
-
-
-Route::get('/home', [App\Http\Controllers\TypeaheadController::class, 'index']);
 
 
 Route::get('user-pagination', function () {
@@ -53,9 +47,9 @@ Route::get('login', [App\Http\Controllers\Auth\LoginController::class, 'login'])
 Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'authenticate']);
 Route::get('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-// -----------------------------login user-----------------------------------------
 
 // ------------------------------register---------------------------------------
+//Route::get('register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
 Route::get('register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
 Route::post('register', [App\Http\Controllers\Auth\RegisterController::class, 'storeUser'])->name('register');
 
@@ -88,11 +82,11 @@ Route::get('admin/form/view/update/{id}', [App\Http\Controllers\FormController::
 Route::get('admin/form/delete/{id}', [App\Http\Controllers\FormController::class, 'delete']);
 
 // -----------------------------user management-----------------------------------------
-Route::get('role/user/view', [App\Http\Controllers\UserManagementController::class, 'index'])->name('role/user/view');
+/*Route::get('role/user/view', [App\Http\Controllers\UserManagementController::class, 'index'])->name('role/user/view');
 Route::post('role/user/save', [App\Http\Controllers\UserManagementController::class, 'save'])->name('role/user/save');
 Route::post('role/user/update', [App\Http\Controllers\UserManagementController::class, 'update'])->name('role/user/update');
 Route::get('role/user/view/report', [App\Http\Controllers\UserManagementController::class, 'viewReport'])->name('role/user/view/report');
-Route::get('role/delete/{id}', [App\Http\Controllers\UserManagementController::class, 'delete']);
+Route::get('role/delete/{id}', [App\Http\Controllers\UserManagementController::class, 'delete']);*/
 
 
 //Important -----------------------------profils-----------------------------------------
