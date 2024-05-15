@@ -13,17 +13,17 @@
     <div class="layout-content">
         <!-- [ content ] Start -->
         <div class="container-fluid flex-grow-1 container-p-y">
-            <h4 class="font-weight-bold py-3 mb-0">Profil / Modifier</h4>
+            <h4 class="font-weight-bold py-3 mb-0">Demandes / Modifier</h4>
             <div class="text-muted small mt-0 mb-4 d-block breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin/home') }}"><i class="feather icon-home"></i></a></li>
-                    <li class="breadcrumb-item">Modifier un Profil</li>
-                    <li class="breadcrumb-item active">Modifier un Profil</li>
+                    <li class="breadcrumb-item">Modifier une Demande</li>
+                    <li class="breadcrumb-item active">Modifier une Demande</li>
                 </ol>
             </div>
 
             <div class="card mb-4">
-                <h6 class="card-header"><i class="feather icon-user"></i>Modifier un Profil </h6>
+                <h6 class="card-header"><i class="feather icon-user"></i> Modifier une Demande </h6>
 
                 <div class="card-body">
 
@@ -45,7 +45,7 @@
                             <div class="clearfix"></div>
                         </div>
                     </div>
-                    <form id="" action="{{ route('profils/edit') }}" method="POST">
+                    <form id="" action="{{ route('demandes/edit') }}" method="POST">
 
 
                         {{ csrf_field() }}
@@ -55,10 +55,10 @@
 
         
                         <div class="form-group row">
-                            <label class="col-form-label col-sm-2 text-sm-right">Profil</label>
+                            <label class="col-form-label col-sm-2 text-sm-right">Demandes</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="profil" name="profil" style="text-transform: uppercase;"
-                                    value="{{ $data->profil }}">
+                                <input type="text" class="form-control" id="demande" name="demande" style="text-transform: uppercase;"
+                                    value="{{ $data->piece }}">
                                 <div class="clearfix"></div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                             <label class="col-form-label col-sm-2 text-sm-right"></label>
                             <div class="col-sm-10">
                                 <button type="submit" id="update" name="update" class="btn btn-primary">Modifier</button>
-                                <a href="{{ route('profils') }}" class="m-r-15  btn btn-danger text-white ">Retour</a>
+                                <a href="{{ route('demandes') }}" class="m-r-15  btn btn-danger text-white ">Retour</a>
 
                                 <div class="clearfix"></div>
                             </div>
@@ -94,24 +94,7 @@
 @section('script')
     {{-- hide message js --}}
 
-    <script>
-        $('#validation').validate({
-            reles: {
-                code: {
-                    required: true,
-                },
-                profil: {
-                    required: true,
-                }
-
-            },
-            messages: {
-               
-                profil: "saisissez un profil*",
-
-            }
-        });
-    </script>
+    
     <script>
         $('#hide-message').show();
         setTimeout(function() {

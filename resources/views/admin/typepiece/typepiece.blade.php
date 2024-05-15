@@ -15,11 +15,11 @@
 <div class="layout-content">
     <!-- [ content ] Start -->
     <div class="container-fluid flex-grow-1 container-p-y">
-        <h4 class="font-weight-bold py-3 mb-0">Ajouter un profil</h4>
+        <h4 class="font-weight-bold py-3 mb-0">Ajouter un Type de piece</h4>
         <div class="text-muted small mt-0 mb-4 d-block breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('admin/home')}}"><i class="feather icon-home"></i></a></li>
-                <li class="breadcrumb-item">Profil</li>
+                <li class="breadcrumb-item">Type de piece</li>
 
             </ol>
         </div>
@@ -28,7 +28,7 @@
 
             <div class="col-md-12">
                 <div class="card mb-4">
-                    <h6 class="card-header"><i class="feather icon-user"></i> Profil Information</h6>
+                    <h6 class="card-header"><i class="feather icon-user"></i>Type piece Information</h6>
 
                     <div class="card-body">
 
@@ -50,13 +50,13 @@
                                 <div class="clearfix"></div>
                             </div>
                         </div>
-                        <form id="validation" action="{{ route('profils/save') }}" method="POST">
+                        <form id="validation" action="{{ route('typepieces/save') }}" method="POST">
                             {{ csrf_field() }}
                          
                             <div class="form-group row">
-                                <label class="col-form-label col-sm-2 text-sm-right">Profils</label>
+                                <label class="col-form-label col-sm-2 text-sm-right">Typepieces</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="profil" style="text-transform: uppercase;" name="profil" placeholder="profil" required>
+                                    <input type="text" class="form-control" id="profil" style="text-transform: uppercase;" name="typepiece" placeholder="typepiece" required>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
@@ -105,8 +105,8 @@
             
             },
             messages:{
-                code:"saisissez un code*",
-                categorie:"saisissez une Categorie*",
+                code:"saisissez un type de pieces*",
+                
                
             }
         });

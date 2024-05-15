@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Profil;
+use App\Models\TypePiece;
 use Illuminate\Http\Request;
 
-class ProfilController extends Controller
+class TypepieceController extends Controller
 {
 
   public function __construct()
@@ -23,8 +23,8 @@ class ProfilController extends Controller
   {
     //
     //$Profils = Profil::latest()->get();
-    $profils = Profil::all();
-    return view("admin.profils.index", compact("profils"));
+    $typepieces = TypePiece::all();
+    return view("admin.typepiece.index", compact("typepieces"));
   }
   /**
    * Show the form for creating a new resource.
@@ -36,7 +36,7 @@ class ProfilController extends Controller
     {
         //
        
-        return view('admin.profils.profil');
+        return view('admin.typepiece.typepiece');
     }
 
   /**
@@ -50,33 +50,33 @@ class ProfilController extends Controller
 
 
     $id            = $request->id;
-    $profil     = $request->profil;
+    $typepiece     = $request->typepiece;
 
 
-    $findProfil = Profil::where('profil', $profil)->first();
+    $findTypepiece = Typepiece::where('typepiece', $typepiece)->first();
 
-    if (!$findProfil) {
+    if (!$findTypepiece) {
 
 
-      $ProfilItem = new Profil();
-      $ProfilItem->profil = $profil;
+      $TypepieceItem = new Typepiece();
+      $TypepieceItem->typepiece = $typepiece;
 
-      $ProfilItem->save();
+      $TypepieceItem->save();
 
       return redirect()->back()->with('insert', 'Enrégistrement éffectué avec succès.');
     } else {
 
-      return redirect()->back()->with('error', 'Le code ou la catégorie  existe déjà.');
+      return redirect()->back()->with('error', 'Le Type de piece existe déjà.');
     }
   }
 
   /**
    * Display the speci fied resource.
    *
-   * @param  \App\Models\Profil  $Profil
+   * @param  \App\Models\Typepiece  $PrTypepiece
    * @return \Illuminate\Http\Response
    */
-  public function show(Profil $Profil)
+  public function show(Typepiece $Typepiece)
   {
     //
   }
@@ -84,7 +84,7 @@ class ProfilController extends Controller
   /**
    * Show the form for editing the specified resource.
    *
-   * @param  \App\Models\Profil  $Profil
+   * @param  \App\Models\Typepiece  $Typepiece
    * @return \Illuminate\Http\Response
    */
 
@@ -99,21 +99,20 @@ class ProfilController extends Controller
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
-   * @param  \App\Models\Profil  $Profil
+   * @param  \App\Models\Typepiece  $Profil
    * @return \Illuminate\Http\Response
    */
 
 
-  //public function update(Request $request, Profil $Profil)
+  //public function update(Request $request, Typepiece $Typepiece)
   public function update($id)
   {
     //strtoupper
 
-    $datas = Profil::all()->where('id', $id);
-
-    foreach ($datas as $data)
+  
+    $data = Typepiece::find($id);
       //dd($data);
-      return view('admin.profils.profil_edit', compact('data'));
+      return view('admin.typepiece.typepiece_edit',compact('data'));
   }
 
   public function edit(Request $request)
@@ -122,18 +121,18 @@ class ProfilController extends Controller
     //strtoupper| whereId($id) 
     $data = $request->all();
     $id            = $request->id;
-    $profil     = $request->profil;
+    $typepiece     = $request->typepiece;
 
    // dd($id ) ;
 
   
-    $findProfil = Profil::where([['Profil', '=', $profil], ['id', '!=', $id ]])->first();
+    $findTypepiece = Typepiece::where([['Typepiece', '=', $typepiece], ['id', '!=', $id ]])->first();
 
-    //dd($findProfil ) ;
+    //dd($findTypepiece) ;
 
-    if (!$findProfil) {
+    if (!$findTypepiece) {
 
-      Profil::updateOrCreate([
+      Typepiece::updateOrCreate([
         'id' => $id 
 
     ], $data);
@@ -142,12 +141,12 @@ class ProfilController extends Controller
 
     } else {
 
-      return redirect()->back()->with('error', 'Profil  existe déjà.');
+      return redirect()->back()->with('error', 'Typepiece  existe déjà.');
     }
 
 
    /*
-    Profil::updateOrCreate([
+    Typepiece::updateOrCreate([
       'dimenesion_id' => $request->dimension,
       'annee_id' => $request->annee,
       'sexe_id' => $request->sexe,
@@ -159,14 +158,14 @@ class ProfilController extends Controller
   /**
    * Remove the specified resource from storage.
    *
-   * @param  \App\Models\Profil  $Profil
+   * @param  \App\Models\Typepiece  $Profil
    * @return \Illuminate\Http\Response
    */
   // public function destroy(Profil $Profil)
   public function delete($id)
   {
     //
-    $delete = Profil::find($id);
+    $delete = Typepiece::find($id);
     $delete->delete();
     return redirect()->back()->with('update', 'Data deleted successfully!');
   }

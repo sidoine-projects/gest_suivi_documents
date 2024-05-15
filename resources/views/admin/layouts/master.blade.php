@@ -16,8 +16,6 @@
     <meta name="AKPAGNONNIDE SIDOINE" content="participation citoyenne" />
          <!-- survey-JS -->
     <meta name="csrf-token" content="{{csrf_token()}}">
-
-
     <!-- Google fonts -->
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon.ico') }}">
 

@@ -65,15 +65,15 @@
                       @enderror
                       <div class="clearfix"></div>
                     </div>
-
-                    <button type="submit" class="btn btn-primary text-center ">Connexion</button>
-
+                    <div class="row">
+                    <button type="submit" class="btn btn-primary mx-auto" style="text-align: center !important;">Connexion</button>
+                    </div>
 
                   </form>
                   <hr>
                
                   <div class="text-center">
-                    <a class="large" href="{{route('register')}}">S'inscrire</a>
+                    <a class="large font-weight-bold" href="{{route('register')}}">S'inscrire</a>
                   </div>
                 </div>
               </div>

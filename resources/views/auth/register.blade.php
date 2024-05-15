@@ -90,10 +90,11 @@
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="form-group ">
-                                    <select class="form-control" name="profil" id="profil" required>
+                                    <select class="form-control" name="profil_id" id="profil_id" required>
                                         <option value="" >Selectionnez un profil</option>
-                                        <option value="1">Etudiant</option>
-                                        <option value="2">Enseignant</option>
+                                        @foreach($profils as $profil)
+                                        <option value="{{ $profil->id }}">{{ $profil->profil }}</option>
+                                        @endforeach
                                     </select>
                                     @error('tel')
                                     <span class="invalid-feedback" role="alert">
@@ -105,7 +106,7 @@
 
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="mot de passe " autocomplete="new-password" placeholder="Entrez votre mot de passe">
+                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password" placeholder="Entrez votre mot de passe">
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

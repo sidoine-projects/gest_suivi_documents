@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Profil;
 use Hash;
 
 class RegisterController extends Controller
@@ -18,8 +19,8 @@ class RegisterController extends Controller
     }
     public function register()
     {
-
-        return view('auth.register');
+        $profils = Profil::all();
+        return view('auth.register', compact('profils'));
     }
 
     public function registerAdmin()
@@ -44,6 +45,9 @@ class RegisterController extends Controller
             'prename' => $request->prename,
             'tel' => $request->tel,
             'email' => $request->email,
+            'adresse' => $request->adresse,
+            'profil_id' => $request->profil_id,
+            'role_name' => 'admin',
             'password' => Hash::make($request->password),
         ]);
         return redirect('login');
@@ -150,8 +154,4 @@ class RegisterController extends Controller
         $delete->delete();
         return redirect()->back()->with('update','Data deleted successfully!');
     }
-
-
-
-
 }

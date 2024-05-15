@@ -93,17 +93,49 @@
                     <ul class="sidenav-menu">
                         <li class="sidenav-item">
                             <!-- route n'existe pas sans le name du web.php-->
-                            <a href="{{route('profil/new')}}" class="sidenav-link">
+                            <a href="{{route('typepiece/new')}}" class="sidenav-link">
                                 <i class="sidenav-icon feather icon-edit"></i>
                                 <div>Ajouter</div>
                             </a>
                         </li>
-
+                        <li class="sidenav-item">
+                            <!-- route n'existe pas sans le name du web.php-->
+                            <a href="{{route('typepieces')}}" class="sidenav-link">
+                                <i class="sidenav-icon feather icon-edit"></i>
+                                <div>Liste</div>
+                            </a>
+                        </li>
                         
                     </ul>
                 </li>
             </ul>
-         
+            <ul class="sidenav-menu">
+                <li class="sidenav-item">
+                    <!-- route n'existe pas sans le name du web.php-->
+                    <a href="javascript:" class="sidenav-link sidenav-toggle">
+                        <i class="sidenav-icon feather icon-file-minus"></i>
+                        <div>Pieces</div>
+                    </a>
+                    <ul class="sidenav-menu">
+                        <li class="sidenav-item">
+                            <!-- route n'existe pas sans le name du web.php-->
+                            <a href="{{route('piece/new')}}" class="sidenav-link">
+                                <i class="sidenav-icon feather icon-edit"></i>
+                                <div>Ajouter</div>
+                            </a>
+                        </li>
+                        <li class="sidenav-item">
+                            <!-- route n'existe pas sans le name du web.php-->
+                            <a href="{{route('piece')}}" class="sidenav-link">
+                                <i class="sidenav-icon feather icon-edit"></i>
+                                <div>Liste</div>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </li>
+            </ul>
+            
         </li>
 
 
@@ -112,18 +144,24 @@
             <a href="javascript:" class="sidenav-link sidenav-toggle">
                 {{-- <i class="sidenav-icon feather icon-clipboard"></i> --}}
                 <i class="sidenav-icon feather icon-user"></i>
-                <div>Utilisateurs</div>
+                <div>Demandes</div>
             </a>
             <ul class="sidenav-menu">
                 <li>
                     <!-- route n'existe pas sans le name du web.php-->
-                    <a href="{{route('admin/register')}}" class="sidenav-link  ">
+                    <a href="{{route('demandes/new')}}" class="sidenav-link  ">
                         {{-- <i class="sidenav-icon feather icon-cloud-lightning"></i> --}}
                         <i class="sidenav-icon feather icon-user"></i>
-                        <div>Utilisateurs</div>
+                        <div>Ajouter</div>
                     </a>
                 </li>
-
+                <li class="sidenav-item">
+                            <!-- route n'existe pas sans le name du web.php-->
+                            <a href="{{route('demandes')}}" class="sidenav-link">
+                                <i class="sidenav-icon feather icon-edit"></i>
+                                <div>Liste</div>
+                            </a>
+                        </li>
             </ul>
         </li>
    
