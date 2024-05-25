@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Demandes extends Model
+class Demande extends Model
 {
     
     use HasFactory;
@@ -20,4 +20,14 @@ class Demandes extends Model
         'is_payed',
 
     ];
+
+    public function piece()
+    {
+        return $this->belongsTo(Pieces::class, 'piece_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

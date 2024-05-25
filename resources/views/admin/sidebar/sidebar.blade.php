@@ -1,31 +1,30 @@
 <!-- [ Layout sidenav ] Start -->
 <div style =" z-index: 2;" id="layout-sidenav" class="layout-sidenav sidenav sidenav-vertical bg-custom-color ">
     <!-- Brand demo (see assets/css/demo/demo.css) -->
-    <div class="app-brand demo " >
-        <span class=" demo " >
+    <div class="app-brand demo ">
+        <span class=" demo ">
             <img width="30" src="{{ asset('assets/images/logo-pigier.PNG') }}" alt="Brand Logo" class="img-fluid">
-    
+
         </span>
-        <a href="#"
-            class="app-brand-text demo sidenav-text font-weight-normal ml-2" style="color: white;">{{ Auth::user()->name }}</a>
-        <a  href="javascript:" class="layout-sidenav-toggle sidenav-link text-large ml-auto">
+        <a href="#" class="app-brand-text demo sidenav-text font-weight-normal ml-2"
+            style="color: white;">{{ Auth::user()->name }}</a>
+        <a href="javascript:" class="layout-sidenav-toggle sidenav-link text-large ml-auto">
             <i class="ion ion-md-menu align-middle"style="color: white;"></i>
         </a>
     </div>
 
     {{-- <div class="sidenav-divider mt-0 " style="margin-top: -29px !important"></div> --}}
-    <div class="sidenav-divider mt-0" ></div>
+    <div class="sidenav-divider mt-0"></div>
 
 
     <!-- Links -->
     <ul class="sidenav-inner py-1">
-
         <!-- Dashboards -->
         <li class="sidenav-item active">
             <a href="{{ route('admin/home') }}" class="sidenav-link">
                 <i class="sidenav-icon feather icon-home"style="color: white;"></i>
                 <div style="color: white;">Dashboards</div>
-                @if (Auth::user()->role_name == 'Admin')
+                @if (Auth::user()->role_name == 'admin')
                     <div class="pl-1 ml-auto">
                         <div class="badge badge-success">{{ Auth::user()->role_name }}</div>
                     </div>
@@ -66,20 +65,20 @@
                     <ul class="sidenav-menu">
                         <li class="sidenav-item">
                             <!-- route n'existe pas sans le name du web.php-->
-                            <a href="{{route('profil/new')}}" class="sidenav-link"style="color: white;">
+                            <a href="{{ route('profil/new') }}" class="sidenav-link"style="color: white;">
                                 <i class="sidenav-icon feather icon-edit"style="color: white;"></i>
                                 <div>Ajouter</div>
                             </a>
                         </li>
                         <li class="sidenav-item">
                             <!-- route n'existe pas sans le name du web.php-->
-                            <a href="{{route('profils')}}" class="sidenav-link"style="color: white;">
+                            <a href="{{ route('profils') }}" class="sidenav-link"style="color: white;">
                                 <i class="sidenav-icon feather icon-edit"style="color: white;"></i>
                                 <div>Liste</div>
                             </a>
                         </li>
 
-                        
+
                     </ul>
                 </li>
             </ul>
@@ -93,19 +92,19 @@
                     <ul class="sidenav-menu">
                         <li class="sidenav-item">
                             <!-- route n'existe pas sans le name du web.php-->
-                            <a href="{{route('typepiece/new')}}" class="sidenav-link"style="color: white;">
+                            <a href="{{ route('typepiece/new') }}" class="sidenav-link"style="color: white;">
                                 <i class="sidenav-icon feather icon-edit"style="color: white;"></i>
                                 <div>Ajouter</div>
                             </a>
                         </li>
                         <li class="sidenav-item">
                             <!-- route n'existe pas sans le name du web.php-->
-                            <a href="{{route('typepieces')}}" class="sidenav-link"style="color: white;">
+                            <a href="{{ route('typepieces') }}" class="sidenav-link"style="color: white;">
                                 <i class="sidenav-icon feather icon-edit"style="color: white;"></i>
                                 <div>Liste</div>
                             </a>
                         </li>
-                        
+
                     </ul>
                 </li>
             </ul>
@@ -119,23 +118,23 @@
                     <ul class="sidenav-menu">
                         <li class="sidenav-item">
                             <!-- route n'existe pas sans le name du web.php-->
-                            <a href="{{route('piece/new')}}" class="sidenav-link"style="color: white;">
+                            <a href="{{ route('piece/new') }}" class="sidenav-link"style="color: white;">
                                 <i class="sidenav-icon feather icon-edit"style="color: white;"></i>
                                 <div>Ajouter</div>
                             </a>
                         </li>
                         <li class="sidenav-item">
                             <!-- route n'existe pas sans le name du web.php-->
-                            <a href="{{route('piece')}}" class="sidenav-link"style="color: white;">
+                            <a href="{{ route('piece') }}" class="sidenav-link"style="color: white;">
                                 <i class="sidenav-icon feather icon-edit"style="color: white;"></i>
                                 <div>Liste</div>
                             </a>
                         </li>
-                        
+
                     </ul>
                 </li>
             </ul>
-            
+
         </li>
 
 
@@ -143,28 +142,36 @@
         <li class="sidenav-item">
             <a href="javascript:" class="sidenav-link sidenav-toggle"style="color: white;">
                 {{-- <i class="sidenav-icon feather icon-clipboard"></i> --}}
-                <i class="sidenav-icon feather icon-user"style="color: white;"></i>
+                <i class="sidenav-icon feather icon-file"style="color: white;"></i>
                 <div style="color: white;">Demandes</div>
             </a>
             <ul class="sidenav-menu">
                 <li>
                     <!-- route n'existe pas sans le name du web.php-->
-                    <a href="{{route('demandes/new')}}" class="sidenav-link "style="color: white;">
+                    <a href="{{ route('demandes/new') }}" class="sidenav-link "style="color: white;">
                         {{-- <i class="sidenav-icon feather icon-cloud-lightning"></i> --}}
-                        <i class="sidenav-icon feather icon-user"style="color: white;"></i>
+                        <i class="sidenav-icon feather icon-plus"style="color: white;"></i>
                         <div>Ajouter</div>
                     </a>
                 </li>
                 <li class="sidenav-item">
-                            <!-- route n'existe pas sans le name du web.php-->
-                            <a href="{{route('demandes')}}" class="sidenav-link"style="color: white;">
-                                <i class="sidenav-icon feather icon-edit"style="color: white;"></i>
-                                <div>Liste</div>
-                            </a>
-                        </li>
+                    <!-- route n'existe pas sans le name du web.php-->
+                    <a href="{{ route('demandes') }}" class="sidenav-link"style="color: white;">
+                        <i class="sidenav-icon feather icon-edit"style="color: white;"></i>
+                        <div>Liste</div>
+                    </a>
+                </li>
             </ul>
         </li>
-   
+
+        <li class="sidenav-item active">
+            <a href="{{ route('demandes/admin') }}" class="sidenav-link">
+                <i class="sidenav-icon feather icon-file" style="color: white;"></i>
+                <div style="color: white;">Demandes</div>
+          
+            </a>
+        </li>
+
 
     </ul>
 </div>

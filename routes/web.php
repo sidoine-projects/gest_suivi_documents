@@ -133,5 +133,5 @@ Route::post('admin/demandes/save', [App\Http\Controllers\DemandeController::clas
 Route::get('admin/demandes/update/{id}', [App\Http\Controllers\DemandeController::class, 'update']); //Modifier departement
 Route::post('admin/demandes/edit', [App\Http\Controllers\DemandeController::class, 'edit'])->name('demandes/edit'); //Enregistrer departement
 Route::get('admin/demandes/delete/{id}', [App\Http\Controllers\DemandeController::class, 'delete']);
-
+Route::get('admin/demandes/admin', [App\Http\Controllers\DemandeController::class, 'indexAdmin'])->name('demandes/admin'); // Liste departement
 

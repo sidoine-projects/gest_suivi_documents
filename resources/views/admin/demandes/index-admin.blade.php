@@ -25,7 +25,6 @@
         </div>
 
         <div class="row">
-
             <div class="col-md-10">
                 <div class="card mb-4">
                     <h6 class="card-header"><i class="feather icon-user"></i> Liste des Demandes </h6>
@@ -36,6 +35,7 @@
                             <thead>
                             <tr>
                                 <th>N° Demande</th>
+                                <th>Nom & Prénom</th>
                                 <th>Pièce</th>
                                 <th>Description</th>
                                 <th>Statut</th>
@@ -47,7 +47,8 @@
                             @foreach ($demandes as $item)
                                 <tr>
                                     <td class="id" style="text-transform: uppercase;">{{ $item->numero }}</td>
-                                    <td class="id" style="text-transform: uppercase;">{{ $item->piece->piece }}</td>
+                                    <td class="id" style="text-transform: uppercase;">{{ $item->numero }}</td>
+                                    <td class="id" style="text-transform: uppercase;">{{ $item->user->name }} {{ $item->user->prename }}</td>
                                     <td class="id" style="text-transform: uppercase;">{{ $item->description }}</td>
                                     <td class="id" style="text-transform: uppercase;">
                                         @if($item->statut == 1)
@@ -61,6 +62,9 @@
                                         @endif
                                     </td>
                                     <td class="text-center">
+                                      <a type="" class="mr-2" data-toggle="modal" data-target="#exampleModal">
+                                        <i class="fa fa-plus" style="font-size: 20px; color: #14609f;  cursor: pointer;"></i>
+                                      </a>
                                         @if(!empty($item->url)) <!-- Remplacez $item->url par la variable qui contient l'URL si différente -->
                                             <a href="{{ url('admin/demandes/update/'.$item->id) }}" class="m-r-15 text-muted userUpdate" style="font-size: 20px">
                                                 <i class="fa fa-eye" style="color: #2196f3;"></i>
@@ -77,11 +81,55 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
 
+        <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ajouter/Modifier un fichier</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="demande" action="{{ route('demandes/save') }}" method="POST" class="col-sm-12">
+                  {{ csrf_field() }}
+                  <!-- Champ caché pour le montant -->
+                  <div class="form-group ">
+                      <label class="col-form-label  text-sm-right">Statut</label>
+                      <div class="col-sm-12">
+                          <select class="form-control" name="piece_id" id="piece" required>
+                              <option value="" disabled selected>Selectionnez un statut</option>
+                              <option value="1" >En cours</option>
+                              <option value="2" >Approuvée</option>
+                              <option value="3" >Réjetée</option>
+                             
+                          </select>
+                          <div class="clearfix"></div>
+                      </div>
+                  </div>
+                  <div class="form-group ">
+                      <label class="col-form-label  text-sm-right">Selectonnez un fichier</label>
+                      <div class="col-sm-12">
+                          <input type="file" class="form-control" id="file"
+                              style="text-transform: uppercase;" name="file" value="" 
+                              placeholder="montant" required>
+                          <div class="clearfix"></div>
+                      </div>
+                  </div>
+              </form>
 
+              </div>
+              <div class="modal-footer row">
+                <div class="form-group   col-sm-12 col-md-12  mx-auto text-center">
+                  <label class="col-form-label"></label>
+                  <button type="submit" class="btn btn-primary mx-auto text-center">Enregistrer</button> <!-- Bouton "Enregistrer" à droite -->
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- [ content ] End -->
     </div>
 

@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Demandes;
+use App\Models\Demande;
 use App\Models\Pieces;
 use Illuminate\Http\Request;
-
-
 
 class DemandeController extends Controller
 {
@@ -17,9 +15,16 @@ class DemandeController extends Controller
 
     public function index()
     {
-        $demandes = Demandes::all();
+        $demandes = Demande::all();
         return view("admin.demandes.index", compact("demandes"));
     }
+
+    public function indexAdmin()
+    {
+        $demandes = Demande::all();
+        return view("admin.demandes.index-admin", compact("demandes"));
+    }
+
 
     public function create()
     {
@@ -34,7 +39,7 @@ class DemandeController extends Controller
             // Générer un nombre aléatoire à 6 chiffres
             $code = mt_rand(100000, 999999);
             // Vérifier si le code est déjà utilisé dans la base de données
-            $existingDemande = Demandes::where('numero', $code)->first();
+            $existingDemande = Demande::where('numero', $code)->first();
         } while ($existingDemande);
 
         return $code;
@@ -57,11 +62,8 @@ class DemandeController extends Controller
         }
     }
 
-
-
     public function save(Request $request)
     {
-     
 
         $numero = $request->numero;
         $piece_id = $request->piece_id;
@@ -70,18 +72,24 @@ class DemandeController extends Controller
         $transaction_status = $request->{'transaction-status'};
         $transaction_id = $request->{'transaction-id'};
 
-        dd( $montant);
-        if ($transaction_id) {
-            dd( $transaction_status);
+
+        if ($transaction_status == "approved") {
+            // Créer une nouvelle demande
+            $demande = new Demande();
+            $demande->piece_id = $piece_id;
+            $demande->user_id = auth()->user()->id; // Assurez-vous que l'utilisateur est authentifié
+            $demande->statut = '1';
+            $demande->description = $description;
+            $demande->numero = $numero;
+            $demande->is_payed = true; // Ou false selon votre logique de paiement
+
+            $demande->save();
+
+            return redirect()->back()->with('success', 'Demande enregistrée avec succès.');
+        } else {
+            return redirect()->back()->with('error', 'Demande échouée.');
         }
 
-         //dd($numero, $piece_id, $transaction_status);
-
-        // Si la demande n'existe pas, créez une nouvelle instance et enregistrez-la
-
-        return view("admin.demandes.index");
-       //return redirect()->back()->with('success', 'Demande enregistrée avec succès.');
-       
     }
 
     public function show(Demandes $demande)
