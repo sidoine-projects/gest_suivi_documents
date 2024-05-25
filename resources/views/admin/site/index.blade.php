@@ -67,10 +67,13 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.html">Accueil</a></li>
-                                    <li><a href="about.html">Faire une Demande</a></li>
+                                    <li><a href="#">Accueil</a></li>
 
-                                    <li><a href="services.html">Pieces Disponibles</a></li>
+                                    <li><a href="{{ route('login.user') }}">Faire une Demande</a></li>
+
+
+                                    <li><a href="#pieces-disponibles">Pieces Disponibles</a></li>
+
 
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
@@ -210,10 +213,11 @@
             <div class="row">
                 <div class="col-12">
                     <!-- Section Heading -->
-                    <div class="section-heading text-center mb-100 wow fadeInUp" data-wow-delay="100ms">
+                    <div class="section-heading text-center mb-100 wow fadeInUp" data-wow-delay="100ms" id="pieces-disponibles">
                         <div class="line"></div>
                         <h2>Pieces Disponibles</h2>
                     </div>
+
                 </div>
             </div>
 

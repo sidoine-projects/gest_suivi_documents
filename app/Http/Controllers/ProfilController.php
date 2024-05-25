@@ -106,15 +106,21 @@ class ProfilController extends Controller
 
   //public function update(Request $request, Profil $Profil)
   public function update($id)
-  {
+{
     //strtoupper
 
-    $datas = Profil::all()->where('id', $id);
+    $data = Profil::find($id); // Utilisation de find pour récupérer le profil par son ID
 
-    foreach ($datas as $data)
-      //dd($data);
-      return view('admin.profils.profil_edit', compact('data'));
-  }
+    // Vérifie si le profil existe
+    if ($data) {
+        // Affiche le profil à modifier
+        return view('admin.profils.profil_edit', compact('data'));
+    } else {
+        // Gère le cas où le profil n'est pas trouvé
+        return redirect()->back()->with('error', 'Profil non trouvé.');
+    }
+}
+
 
   public function edit(Request $request)
   {

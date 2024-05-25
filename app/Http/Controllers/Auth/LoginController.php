@@ -99,9 +99,15 @@ class LoginController extends Controller
     }
 
     public function logout()
-    {
-    
-        $id = Auth::user()->id;
+    {$id = null; // Déclaration initiale de la variable $id
+
+        if (Auth::check()) {
+            // L'utilisateur est authentifié, vous pouvez maintenant accéder à son ID
+            $id = Auth::user()->id;
+        } else {
+            // Gérer le cas où l'utilisateur n'est pas authentifié
+        }
+        
         DB::update('update users set status = ? where id = ?',[0, $id]);
         Auth::logout();
         return redirect()->route('login');

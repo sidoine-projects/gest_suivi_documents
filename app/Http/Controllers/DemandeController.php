@@ -61,31 +61,27 @@ class DemandeController extends Controller
 
     public function save(Request $request)
     {
-        // Récupérer les données de la requête
-        $id = $request->id;
-        $piece_id = $request->piece_id;
-        $users_id = $request->users_id; // Correction ici
-        $date = $request->date;
-        $statut = $request->statut;
+     
 
-        // Recherchez si la demande existe déjà
-        $findDemandes = Demandes::where('id', $id)->first();
+        $numero = $request->numero;
+        $piece_id = $request->piece_id;
+        $montant = $request->montant;
+        $description = $request->description;
+        $transaction_status = $request->{'transaction-status'};
+        $transaction_id = $request->{'transaction-id'};
+
+        dd( $montant);
+        if ($transaction_id) {
+            dd( $transaction_status);
+        }
+
+         //dd($numero, $piece_id, $transaction_status);
 
         // Si la demande n'existe pas, créez une nouvelle instance et enregistrez-la
-        if (!$findDemandes) {
-            $demande = new Demandes();
-            $demande->id = $id;
-            $demande->piece_id = $piece_id;
-            $demande->users_id = $users_id;
-            $demande->date = $date;
-            $demande->statut = $statut;
-            $demande->save();
 
-            return redirect()->back()->with('success', 'Demande enregistrée avec succès.');
-        } else {
-            // Si la demande existe déjà, retournez avec un message d'erreur
-            return redirect()->back()->with('error', 'La demande existe déjà.');
-        }
+        return view("admin.demandes.index");
+       //return redirect()->back()->with('success', 'Demande enregistrée avec succès.');
+       
     }
 
     public function show(Demandes $demande)

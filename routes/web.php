@@ -7,7 +7,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\UserManagementController;
 //use App\Http\Controllers\GeolocalisationController;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,8 +43,8 @@ Route::post('admin', [App\Http\Controllers\Admin\HomeController::class, 'update'
 
 
 // -----------------------------login Admin-----------------------------------------
-Route::get('login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
-Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'authenticate']);
+Route::get('login/user', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login.user');
+Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'authenticate'])->name('authentificate');
 Route::get('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 
@@ -133,7 +133,5 @@ Route::post('admin/demandes/save', [App\Http\Controllers\DemandeController::clas
 Route::get('admin/demandes/update/{id}', [App\Http\Controllers\DemandeController::class, 'update']); //Modifier departement
 Route::post('admin/demandes/edit', [App\Http\Controllers\DemandeController::class, 'edit'])->name('demandes/edit'); //Enregistrer departement
 Route::get('admin/demandes/delete/{id}', [App\Http\Controllers\DemandeController::class, 'delete']);
-
-
 
 

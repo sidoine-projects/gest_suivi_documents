@@ -78,8 +78,8 @@
           <div class="form-group row">
             <label class="col-form-label col-sm-2 text-sm-right"></label>
             <div class="col-sm-10">
-              <button type="submit" id="update" name="update" class="btn btn-primary">Modifier</button>
-              <a href="{{ route('piece') }}" class="m-r-15  btn btn-danger text-white ">Retour</a>
+              <button type="submit" id="update" name="update" class="btn btn-warning">Modifier</button>
+              <a href="{{ route('piece') }}" class="m-r-15  btn btn-primary text-white ">Retour</a>
 
               <div class="clearfix"></div>
             </div>

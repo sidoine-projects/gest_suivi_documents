@@ -12,7 +12,7 @@ class RegisterController extends Controller
 {
     public function __construct()
     {
-        
+
         //$this->middleware('users');
         //$this->middleware('admin');
 
@@ -26,7 +26,7 @@ class RegisterController extends Controller
     public function registerAdmin()
     {
         $users = User::latest()->get();
-        return view('admin.users.user',compact('users'));
+        return view('admin.users.user', compact('users'));
     }
 
     public function storeUser(Request $request)
@@ -39,7 +39,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:8|confirmed',
             'password_confirmation' => 'required',
         ]);
-        
+
         User::create([
             'name' => $request->name,
             'prename' => $request->prename,
@@ -64,7 +64,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:8|confirmed',
             'password_confirmation' => 'required',
         ]);
-        
+
         User::create([
             'name' => $request->name,
             'prename' => $request->prename,
@@ -81,69 +81,65 @@ class RegisterController extends Controller
     {
         //
 
-        $datas = User::all()->where('id',$id);
-        foreach($datas as $data)
-        return view('admin.users.user_edit',compact('data'));
+        $datas = User::all()->where('id', $id);
+        foreach ($datas as $data)
+            return view('admin.users.user_edit', compact('data'));
     }
 
 
     public function edit(Request $request)
     {
 
-      $data = $request->all();
-  
-      $nom          = $request->name;
-      $prenom          = $request->prename;
-      $email          = $request->email;
-      $tel          = $request->tel;
-      $password          = $request->password;
-   
+        $data = $request->all();
 
-     // $insert = Annee::firstOrNew(['id'=>$id, ]); // if departement_name = departement_name in database exit
-    
+        $nom          = $request->name;
+        $prenom          = $request->prename;
+        $email          = $request->email;
+        $tel          = $request->tel;
+        $password          = $request->password;
 
-      $users= User::all();
 
-     $i = 0;
-      // dd( $searchId);
+        // $insert = Annee::firstOrNew(['id'=>$id, ]); // if departement_name = departement_name in database exit
 
-       foreach( $users as $user){
-           if ( ($user->nom == $nom and  $user->prename == $prenom   and  $user->email == $email) or $user->tel == $tel and $user->id != $request->id  ) {
-               # code...
-               $i++;
-           }
-          
+
+        $users = User::all();
+
+        $i = 0;
+        // dd( $searchId);
+
+        foreach ($users as $user) {
+            if (($user->nom == $nom and  $user->prename == $prenom   and  $user->email == $email) or $user->tel == $tel and $user->id != $request->id) {
+                # code...
+                $i++;
+            }
         }
 
         //dd($i);
 
         //dd($i, $code, $libelle);
 
-        if($i == 0){
+        if ($i == 0) {
 
-          User:: updateOrCreate([
-        
-            'id' => $request->id,
-           
-             
-           
-          ], [
-            'name' => $request->name,
-            'prename' => $request->prename,
-            'tel' => $request->tel,
-            'role_name' => 'admin',
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-          ]);
-  
-          return redirect()->back()->with('insert', 'modification éffectué avec succès.');
-         }else {
-             # code...
-             return redirect()->back()->with('error', 'L\'utilisateur existe dejà  existe déjà.');
-         }
+            User::updateOrCreate([
+
+                'id' => $request->id,
 
 
 
+            ], [
+                'name' => $request->name,
+                'prename' => $request->prename,
+                'tel' => $request->tel,
+                'role_name' => 'admin',
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+
+            return redirect()->back()->with('insert', 'modification éffectué avec succès.');
+        } else {
+            # code...
+            return redirect()->back()->with('error', 'L\'utilisateur existe dejà  existe déjà.');
+        }
     }
 
 
@@ -152,6 +148,6 @@ class RegisterController extends Controller
         //
         $delete = User::find($id);
         $delete->delete();
-        return redirect()->back()->with('update','Data deleted successfully!');
+        return redirect()->back()->with('update', 'Data deleted successfully!');
     }
 }

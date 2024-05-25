@@ -44,7 +44,7 @@
                     {{ session()->get('error') }}
                   </div>
                   @endif
-                  <form method="POST" action="{{ route('login') }}" class="my-5">
+                  <form method="POST" action="{{ route('authentificate') }}" class="my-5">
                     @csrf
 
                     <div class="form-group">

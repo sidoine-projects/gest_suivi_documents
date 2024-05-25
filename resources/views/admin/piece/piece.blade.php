@@ -83,8 +83,8 @@
                             <div class="form-group row">
                                 <label class="col-form-label col-sm-2 text-sm-right"></label>
                                 <div class="col-sm-10 d-flex justify-content-between align-items-center"> <!-- Utilisation de Flexbox -->
-                                    <button type="reset" class="btn btn-danger">Annuler</button> <!-- Bouton "Annuler" à gauche -->
-                                    <button type="submit" class="btn btn-primary">Enregistrer</button> <!-- Bouton "Enregistrer" à droite -->
+                                    <button type="reset" class="btn btn-primary">Annuler</button> <!-- Bouton "Annuler" à gauche -->
+                                    <button type="submit" class="btn btn-warning">Enregistrer</button> <!-- Bouton "Enregistrer" à droite -->
                                 </div>
                             </div>
                         </form>
