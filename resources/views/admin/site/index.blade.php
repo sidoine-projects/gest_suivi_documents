@@ -11,17 +11,61 @@
     <!-- Title -->
     <title>PIGIER_ACAD</title>
 
-
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ asset('assets/import2/style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
 
+    <style>
+        .flex-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px; /* Adjust margin as needed */
+        }
 
+        .flex-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .flex-container .content {
+            max-width: 50%;
+            margin-right: 20px;
+        }
+
+        .section-heading .line {
+            width: 50px;
+            height: 2px;
+            background-color: #000;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .flex-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .flex-container .content {
+                max-width: 100%;
+                margin: 0 0 20px 0;
+            }
+
+            .flex-container img {
+                max-width: 100%;
+                margin-bottom: 20px; /* Add margin-bottom to the image */
+            }
+        }
+
+        /* Additional styles to ensure image doesn't touch the bottom yellow bar */
+        .features-area {
+            padding-bottom: 50px; /* Adjust padding as needed to prevent touching the bottom yellow bar */
+        }
+    </style>
 </head>
 
 <body>
-
-
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
         <!-- Top Header Area -->
@@ -37,7 +81,7 @@
                         <!-- Top Contact Info -->
                         <div class="top-contact-info d-flex align-items-center">
                             <a href="#" data-toggle="tooltip" data-placement="bottom" title=""><img src="{{ asset('assets/import2/img/core-img/placeholder.png') }}" alt=""> <span>PIGIER-BENIN, Carré 1270, Rue 320 AGONTINKON-AYIDOTE, Cotonou, Bénin.</span></a>
-                            <a href="#" data-toggle="tooltip" data-placement="bottom" title=""><img src="{{ asset('assetsimport2/img/core-img/message.png') }}" alt=""> <span>pigierbenin@gmail.com</span></a>
+                            <a href="#" data-toggle="tooltip" data-placement="bottom" title=""><img src="{{ asset('assets/import2/img/core-img/message.png') }}" alt=""> <span>pigierbenin@gmail.com</span></a>
                         </div>
                     </div>
                 </div>
@@ -58,7 +102,6 @@
 
                         <!-- Menu -->
                         <div class="classy-menu">
-
                             <!-- Close Button -->
                             <div class="classycloseIcon">
                                 <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
@@ -68,13 +111,8 @@
                             <div class="classynav">
                                 <ul>
                                     <li><a href="#">Accueil</a></li>
-
                                     <li><a href="{{ route('login.user') }}">Faire une Demande</a></li>
-
-
                                     <li><a href="#pieces-disponibles">Pieces Disponibles</a></li>
-
-
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
                             </div>
@@ -85,7 +123,6 @@
                         <div class="contact">
                             <a href="tel:+22997846728"><img src="{{ asset('assets/import2/img/core-img/call2.png') }}" alt=""> +22997846728</a>
                         </div>
-
                     </nav>
                 </div>
             </div>
@@ -93,45 +130,23 @@
     </header>
     <!-- ##### Header Area End ##### -->
 
-
-
     <!-- ##### Features Area Start ###### -->
     <section class="features-area section-padding-100-0">
         <div class="container">
-            <div class="row align-items-end">
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-features-area mb-100 wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Section Heading -->
-                        <div class="section-heading">
-                            <div class="line"></div>
-                            <h2>PIGIER_ACAD</h2>
-                        </div>
-                        <h6> Bienvenue sur notre plateforme de retrait de pièces académiques et administratives !</h6>
-                        <a href="{{ route('login') }}" class="btn credit-btn mt-50">Se connecter</a>
+            <div class="flex-container">
+                <div class="content">
+                    <div class="section-heading">
+                        <div class="line"></div>
+                        <h2>PIGIER_ACAD</h2>
                     </div>
+                    <h6> Bienvenue sur notre plateforme de retrait de pièces académiques et administratives !</h6>
+                    <a href="{{ route('login') }}" class="btn credit-btn mt-50">Se connecter</a>
                 </div>
-                <style>
-                    .custom-img {
-                        width: 150px;
-                        height: 150px;
-                    }
-                </style>
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-features-area mb-100 wow fadeInUp">
-                        <img src="{{ asset('assets/import2/img/bg-img/i1.jpg') }}" alt="" class="custom-img"> <!-- Ajout de la classe custom-img -->
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-features-area mb-100 wow fadeInUp">
-                        <img src="{{ asset('assets/import2/img/bg-img/i2.jpg') }}" alt="" class="custom-img"> <!-- Ajout de la classe custom-img -->
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="single-features-area mb-100 wow fadeInUp">
-                        <img src="{{ asset('assets/import2/img/bg-img/i3.jpg') }}" alt="" class="custom-img"> <!-- Ajout de la classe custom-img -->
-                    </div>
-                </div>
+                <img src="{{ asset('assets/import2/img/bg-img/i2.jpg') }}" alt="Image" class="custom-img">
             </div>
+        </div>
+
+
     </section>
     <!-- ##### Features Area End ###### -->
 
@@ -229,7 +244,7 @@
                             <i class="bi bi-folder-fill"></i>
                         </div>
                         <div class="text">
-                            <h5>Attestation de scolarité</h5>
+                            <h5>Relevé de notes </h5>
 
                         </div>
                     </div>

@@ -24,7 +24,7 @@
             <a href="{{ route('admin/home') }}" class="sidenav-link">
                 <i class="sidenav-icon feather icon-home"style="color: white;"></i>
                 <div style="color: white;">Dashboards</div>
-                @if (Auth::user()->role_name == 'admin')
+               @if (Auth::user()->role_name == 'admin')
                     <div class="pl-1 ml-auto">
                         <div class="badge badge-success">{{ Auth::user()->role_name }}</div>
                     </div>

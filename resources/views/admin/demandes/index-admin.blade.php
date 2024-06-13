@@ -47,8 +47,8 @@
                             @foreach ($demandes as $item)
                                 <tr>
                                     <td class="id" style="text-transform: uppercase;">{{ $item->numero }}</td>
-                                    <td class="id" style="text-transform: uppercase;">{{ $item->numero }}</td>
                                     <td class="id" style="text-transform: uppercase;">{{ $item->user->name }} {{ $item->user->prename }}</td>
+                                    <td class="id" style="text-transform: uppercase;">{{ $item->piece->piece}}</td>
                                     <td class="id" style="text-transform: uppercase;">{{ $item->description }}</td>
                                     <td class="id" style="text-transform: uppercase;">
                                         @if($item->statut == 1)
