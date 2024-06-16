@@ -167,7 +167,7 @@
         <li class="sidenav-item active">
             <a href="{{ route('demandes/admin') }}" class="sidenav-link">
                 <i class="sidenav-icon feather icon-file" style="color: white;"></i>
-                <div style="color: white;">Demandes</div>
+                <div style="color: white;">Liste des Demandes</div>
           
             </a>
         </li>

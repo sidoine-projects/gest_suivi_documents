@@ -16,12 +16,15 @@ class DemandeController extends Controller
     public function index()
     {
         $demandes = Demande::all();
+        
         return view("admin.demandes.index", compact("demandes"));
+
     }
 
     public function indexAdmin()
     {
-        $demandes = Demande::all();
+        // $demandes = Demande::all();
+        $demandes = Demande::with('suiviDemande')->get();
         return view("admin.demandes.index-admin", compact("demandes"));
     }
 

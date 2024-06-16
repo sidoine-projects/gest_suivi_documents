@@ -8,6 +8,7 @@ use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\UserManagementController;
 //use App\Http\Controllers\GeolocalisationController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\SuiviDemandeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -91,22 +92,22 @@ Route::get('role/delete/{id}', [App\Http\Controllers\UserManagementController::c
 
 //Important -----------------------------profils-----------------------------------------
 //Route::get('profils/new', [App\Http\Controllers\ProfilController::class, 'create'])->name('profils/new'); //New departement
-Route::get('admin/profil/new', [App\Http\Controllers\ProfilController::class, 'create'])->name('profil/new'); // Liste departement
-Route::get('admin/profils', [App\Http\Controllers\ProfilController::class, 'index'])->name('profils'); // Liste departement
+Route::get('profil/new', [App\Http\Controllers\ProfilController::class, 'create'])->name('profil/new'); // Liste departement
+Route::get('profils', [App\Http\Controllers\ProfilController::class, 'index'])->name('profils'); // Liste departement
 Route::post('admin/profils/save', [App\Http\Controllers\ProfilController::class, 'save'])->name('profils/save'); //Enregistrer departement
 //Route::post('departements/edit', [App\Http\Controllers\DepartementController::class, 'edit'])->name('departements/edit'); //Enregistrer departement
 Route::get('admin/profils/update/{id}', [App\Http\Controllers\ProfilController::class, 'update']); //Modifier departement
-Route::post('admin/profils/edit', [App\Http\Controllers\ProfilController::class, 'edit'])->name('profils/edit'); //Enregistrer departement
+Route::post('profils/edit', [App\Http\Controllers\ProfilController::class, 'edit'])->name('profils/edit'); //Enregistrer departement
 Route::get('admin/profils/delete/{id}', [App\Http\Controllers\ProfilController::class, 'delete']);
 
 //Important -----------------------------Typespieces-----------------------------------------
 //Route::get('profils/new', [App\Http\Controllers\ProfilController::class, 'create'])->name('profils/new'); //New departement
-Route::get('admin/typepiece/new', [App\Http\Controllers\TypepieceController::class, 'create'])->name('typepiece/new'); // Liste departement
-Route::get('admin/typepieces', [App\Http\Controllers\TypepieceController::class, 'index'])->name('typepieces'); // Liste departement
+Route::get('typepiece/new', [App\Http\Controllers\TypepieceController::class, 'create'])->name('typepiece/new'); // Liste departement
+Route::get('typepieces', [App\Http\Controllers\TypepieceController::class, 'index'])->name('typepieces'); // Liste departement
 Route::post('admin/typepieces/save', [App\Http\Controllers\TypepieceController::class, 'save'])->name('typepieces/save'); //Enregistrer departement
 //Route::post('departements/edit', [App\Http\Controllers\DepartementController::class, 'edit'])->name('departements/edit'); //Enregistrer departement
 Route::get('admin/typepieces/update/{id}', [App\Http\Controllers\TypepieceController::class, 'update']); //Modifier departement
-Route::post('admin/typepieces/edit', [App\Http\Controllers\TypepieceController::class, 'edit'])->name('typepieces/edit'); //Enregistrer departement
+Route::post('typepieces/edit', [App\Http\Controllers\TypepieceController::class, 'edit'])->name('typepieces/edit'); //Enregistrer departement
 Route::get('admin/typepieces/delete/{id}', [App\Http\Controllers\TypepieceController::class, 'delete']);
 
 
@@ -115,23 +116,26 @@ Route::get('/getMontant', [App\Http\Controllers\PieceController::class, 'getMont
 
 //Important -----------------------------Pieces-----------------------------------------
 //Route::get('profils/new', [App\Http\Controllers\ProfilController::class, 'create'])->name('profils/new'); //New departement
-Route::get('admin/piece/new', [App\Http\Controllers\PieceController::class, 'create'])->name('piece/new'); // Liste departement
-Route::get('admin/piece', [App\Http\Controllers\PieceController::class, 'index'])->name('piece'); // Liste departement
+Route::get('piece/new', [App\Http\Controllers\PieceController::class, 'create'])->name('piece/new'); // Liste departement
+Route::get('piece', [App\Http\Controllers\PieceController::class, 'index'])->name('piece'); // Liste departement
 Route::post('admin/piece/save', [App\Http\Controllers\PieceController::class, 'save'])->name('piece/save'); //Enregistrer departement
 //Route::post('departements/edit', [App\Http\Controllers\DepartementController::class, 'edit'])->name('departements/edit'); //Enregistrer departement
 Route::get('admin/piece/update/{id}', [App\Http\Controllers\PieceController::class, 'update']); //Modifier departement
-Route::post('admin/piece/edit', [App\Http\Controllers\PieceController::class, 'edit'])->name('piece/edit'); //Enregistrer departement
+Route::post('piece/edit', [App\Http\Controllers\PieceController::class, 'edit'])->name('piece/edit'); //Enregistrer departement
 Route::get('admin/piece/delete/{id}', [App\Http\Controllers\PieceController::class, 'delete']);
 
 
 //Important -----------------------------Demandes-----------------------------------------
 //Route::get('profils/new', [App\Http\Controllers\ProfilController::class, 'create'])->name('profils/new'); //New departement
-Route::get('admin/demande/new', [App\Http\Controllers\DemandeController::class, 'create'])->name('demandes/new'); // Liste departement
-Route::get('admin/demandes', [App\Http\Controllers\DemandeController::class, 'index'])->name('demandes'); // Liste departement
+Route::get('demande/new', [App\Http\Controllers\DemandeController::class, 'create'])->name('demandes/new'); // Liste departement
+Route::get('demandes', [App\Http\Controllers\DemandeController::class, 'index'])->name('demandes'); // Liste departement
 Route::post('admin/demandes/save', [App\Http\Controllers\DemandeController::class, 'save'])->name('demandes/save'); //Enregistrer departement
 //Route::post('departements/edit', [App\Http\Controllers\DepartementController::class, 'edit'])->name('departements/edit'); //Enregistrer departement
 Route::get('admin/demandes/update/{id}', [App\Http\Controllers\DemandeController::class, 'update']); //Modifier departement
-Route::post('admin/demandes/edit', [App\Http\Controllers\DemandeController::class, 'edit'])->name('demandes/edit'); //Enregistrer departement
+Route::post('demandes/edit', [App\Http\Controllers\DemandeController::class, 'edit'])->name('demandes/edit'); //Enregistrer departement
 Route::get('admin/demandes/delete/{id}', [App\Http\Controllers\DemandeController::class, 'delete']);
-Route::get('admin/demandes/admin', [App\Http\Controllers\DemandeController::class, 'indexAdmin'])->name('demandes/admin'); // Liste departement
+Route::get('liste/demandes', [App\Http\Controllers\DemandeController::class, 'indexAdmin'])->name('demandes/admin'); // Liste departement
 
+//Important -----------------------------Suivi Demande-----------------------------------------
+Route::post('suivi/demande', [App\Http\Controllers\SuiviDemandeController::class, 'store'])->name('suivi/demande');
+Route::get('suivi/demande/delete/{id}', [App\Http\Controllers\SuiviDemandeController::class, 'destroy']);

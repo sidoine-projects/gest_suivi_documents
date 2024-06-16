@@ -25,7 +25,7 @@
             <div class="col-sm-10">
                 <div class="card mb-4">
                     <h6 class="card-header"><i class="feather icon-user"></i>Demande Information</h6>
-                    <div class="card-body ">
+                    <div class="card-body">
                         <div class="form-group row">
                             <div class="col-sm-12">
                                 @if (\Session::has('insert'))

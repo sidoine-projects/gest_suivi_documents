@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\SuiviDemande;
+use App\Models\Pieces;
+use App\Models\User;
 
 class Demande extends Model
 {
@@ -29,5 +32,10 @@ class Demande extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function suiviDemande()
+    {
+        return $this->hasOne(SuiviDemande::class);
     }
 }
