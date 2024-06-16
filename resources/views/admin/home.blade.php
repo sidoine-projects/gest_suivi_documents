@@ -25,56 +25,106 @@
         </div>
 
         <div class="row col-lg-12 col-md-12 ">
-            <!-- 1st row Start -->
+                <!-- 1st row Start -->
 
-            <div class="col-lg-12">
-                <div class="row col-md-12">
+                <div class="col-lg-12">
+                    <div class="row col-md-12">
 
-                    <div class="container">
-                        <div class="row justify-content-center align-items-center">
-                            <div class="col-md-12">
-                                <div class="card mb-4 bg-pattern-2-dark">
-                                    <div class="card-body text-center">
-                                        <div class="d-flex align-items-center justify-content-center">
-                                            <div class="lnr lnr-user display-4 text-primary"></div>
-                                            <div class="ml-3">
-                                                <div class="large">
-                                                    <h6>Total utilisateurs <br> <br> </h6>
-                                                </div>
-                                                <div class="text-large">{{ $totalUser }}</div>
+                        <div class="col-md-3 ">
+                            <div class="card  mb-4 bg-pattern-2-dark">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="lnr lnr-user display-4 text-primary"></div>
+                                        <div class="ml-3">
+                                            <div class="small">
+                                                <h6>Total étudiants <br> <br> </h6>
                                             </div>
+                                            <div class="text-large">{{ $totalUser }}</div>
                                         </div>
-
-                                        <div class="mt-3"><a href="{{ route('admin/register') }}">Créer un utilisateur</a></div>
                                     </div>
+
+                                    <div id="" class="mt-3 " style="height:40px"><a
+                                            href="#">Crée un etudiant</a></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="col-md-3 ">
+                            <div class="card  mb-4 bg-pattern-2-dark">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="lnr lnr-user display-4 text-primary"></div>
+                                        <div class="ml-3">
+                                            <div class="small">
+                                                <h6>Total enseignants <br> <br> </h6>
+                                            </div>
+                                            <div class="text-large">{{ $totalUser }}</div>
+                                        </div>
+                                    </div>
 
-
-
-
-
-                </div>
-
-
-                <div class="row">
-
-                    <div class="col-md-12">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <div id="graphParPib" style="height: 400px"></div>
+                                    <div id="" class="mt-3 " style="height:40px"><a
+                                            href="#">Crée un enseignant</a></div>
+                                </div>
                             </div>
                         </div>
+
+                        <div class="col-md-3">
+                            <div class="card mb-4 bg-pattern-2-dark">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="lnr lnr-file-empty display-4 text-primary"></div>
+                                        <div class="ml-3">
+                                            <div class="small">
+                                                <h6>Total demande etudiant/jour  <br> <br> </h6>
+                                            </div>
+                                            <div class="text-large">{{ $totalUser }}</div>
+                                        </div>
+                                    </div>
+
+                                    <div id="" class="mt-3 " style="height:40px"><a
+                                            href="#"> Crée demande etudiant </a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card mb-4 bg-pattern-2-dark">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="lnr lnr-file-empty display-4 text-primary"></div>
+                                        <div class="ml-3">
+                                            <div class="small">
+                                                <h6>Total demande enseignants/jour  <br> <br> </h6>
+                                            </div>
+                                            <div class="text-large">{{ $totalUser }}</div>
+                                        </div>
+                                    </div>
+
+                                    <div id="" class="mt-3 " style="height:40px"><a
+                                            href="#">Crée demande enseignant</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
                     </div>
 
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <div id="graphParPib" style="height: 400px"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
                 </div>
-
-
+                <!-- 1st row Start -->
             </div>
-            <!-- 1st row Start -->
-        </div>
 
     </div>
     <!-- [ content ] End -->
