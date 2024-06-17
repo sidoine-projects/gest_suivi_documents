@@ -17,6 +17,14 @@ class RegisterController extends Controller
         //$this->middleware('admin');
 
     }
+
+    public function index()
+    {
+        // $users = User::all();
+        $users = User::where('role_name', '!=', 'super_admin')->get();
+        return view('admin.users.index', compact('users'));
+    }
+
     public function register()
     {
         $profils = Profil::all();
@@ -40,6 +48,13 @@ class RegisterController extends Controller
             'password_confirmation' => 'required',
         ]);
 
+        $roleName = 'admin'; // Valeur par défaut
+        if ($request->profil_id == 1) {
+            $roleName = 'etudiant';
+        } elseif ($request->profil_id == 2) {
+            $roleName = 'enseignant';
+        }    
+
         User::create([
             'name' => $request->name,
             'prename' => $request->prename,
@@ -47,7 +62,7 @@ class RegisterController extends Controller
             'email' => $request->email,
             'adresse' => $request->adresse,
             'profil_id' => $request->profil_id,
-            'role_name' => 'admin',
+            'role_name' => 'administration',
             'password' => Hash::make($request->password),
         ]);
         return redirect('login');

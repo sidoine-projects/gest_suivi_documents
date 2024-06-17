@@ -140,7 +140,7 @@
                         <h2>PIGIER_ACAD</h2>
                     </div>
                     <h6> Bienvenue sur notre plateforme de retrait de pièces académiques et administratives !</h6>
-                    <a href="{{ route('login') }}" class="btn credit-btn mt-50">Se connecter</a>
+                    <a href="{{ route('login.user') }}" class="btn credit-btn mt-50">Se connecter</a>
                 </div>
                 <img src="{{ asset('assets/import2/img/bg-img/i2.jpg') }}" alt="Image" class="custom-img">
             </div>

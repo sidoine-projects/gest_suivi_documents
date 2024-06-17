@@ -63,15 +63,18 @@
                             </div>
                         </div>
 
-
-
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2 text-sm-right"></label>
-                            <div class="col-sm-10">
-                                <button type="submit" id="update" name="update" class="btn btn-warning">Modifier</button>
-                                <a href="{{ route('typepieces') }}" class="m-r-15  btn btn-primary text-white ">Retour</a>
+                            <div class="col-sm-10 d-flex justify-content-between align-items-center">
+                                <a href="{{ route('typepieces') }}" class="m-r-15  btn btn-secondary text-white ">Retour</a>
 
-                                <div class="clearfix"></div>
+                                @if (auth()->user()->role_name == 'super_admin')
+                                <button type="submit" id="update" name="update" class="btn btn-primary">Modifier</button>
+                                    <!-- Bouton "Enregistrer" activé pour super_admin -->
+                                @else
+                                    <button type="submit" class="btn btn-primary" disabled>Enregistrer</button>
+                                    <!-- Bouton "Enregistrer" désactivé pour les autres -->
+                                @endif                            
                             </div>
                         </div>
                     </form>

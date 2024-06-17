@@ -6,8 +6,8 @@
             <img width="30" src="{{ asset('assets/images/logo-pigier.PNG') }}" alt="Brand Logo" class="img-fluid">
 
         </span>
-        <a href="#" class="app-brand-text demo sidenav-text font-weight-normal ml-2"
-            style="color: white;">{{ Auth::user()->name }}</a>
+        {{-- <a href="#" class="app-brand-text demo sidenav-text font-weight-normal ml-2"
+            style="color: white;">{{ Auth::user()->name }}</a> --}}
         <a href="javascript:" class="layout-sidenav-toggle sidenav-link text-large ml-auto">
             <i class="ion ion-md-menu align-middle"style="color: white;"></i>
         </a>
@@ -21,7 +21,7 @@
     <ul class="sidenav-inner py-1">
         <!-- Dashboards -->
         <li class="sidenav-item active">
-            <a href="{{ route('admin/home') }}" class="sidenav-link">
+            <a href="{{ route('dashboard') }}" class="sidenav-link">
                 <i class="sidenav-icon feather icon-home"style="color: white;"></i>
                 <div style="color: white;">Dashboards</div>
                @if (Auth::user()->role_name == 'admin')
@@ -46,13 +46,41 @@
         {{-- <li class="sidenav-divider mb-1"></li> --}}
         {{-- <li class="sidenav-header small font-weight-semibold">SUIVI</li> --}}
 
-
-
+        @if (Auth::user()->role_name == 'admin' || Auth::user()->role_name == 'super_admin')
         <li class="sidenav-item">
             <a href="javascript:" class="sidenav-link sidenav-toggle"style="color: white;">
-                <i class="sidenav-icon feather icon-menu"style="color: white;"></i>
+                <i class="sidenav-icon feather icon-menu" style="color: white;"></i>
                 <div style="color: white;">PARAMETRE</div>
             </a>
+
+						<ul class="sidenav-menu">
+							<li class="sidenav-item">
+									<!-- route n'existe pas sans le name du web.php-->
+									<a href="javascript:" class="sidenav-link sidenav-toggle"style="color: white;">
+											{{-- <i class="sidenav-icon feather icon-cloud-lightning"></i> --}}
+											<i class="sidenav-icon feather icon-user"style="color: white;"></i>
+											<div> Utilisateur</div>
+									</a>
+
+									<ul class="sidenav-menu">
+											<li class="sidenav-item">
+													<!-- route n'existe pas sans le name du web.php-->
+													<a href="{{ route('admin/register') }}" class="sidenav-link"style="color: white;">
+															<i class="sidenav-icon feather icon-plus" style="color: white;"></i>
+															<div>Ajouter</div>
+													</a>
+											</li>
+											<li class="sidenav-item">
+													<!-- route n'existe pas sans le name du web.php-->
+													<a href="{{ route('admin/users') }}" class="sidenav-link"style="color: white;">
+															<i class="sidenav-icon feather icon-edit"style="color: white;"></i>
+															<div>Liste</div>
+													</a>
+											</li>
+									</ul>
+							</li>
+					</ul>
+						
             <ul class="sidenav-menu">
                 <li class="sidenav-item">
                     <!-- route n'existe pas sans le name du web.php-->
@@ -130,15 +158,13 @@
                                 <div>Liste</div>
                             </a>
                         </li>
-
                     </ul>
                 </li>
             </ul>
-
         </li>
+        @endif
 
-
-
+        @if (Auth::user()->role_name == 'etudiant' || Auth::user()->role_name == 'super_admin' || Auth::user()->role_name == 'enseignant')
         <li class="sidenav-item">
             <a href="javascript:" class="sidenav-link sidenav-toggle"style="color: white;">
                 {{-- <i class="sidenav-icon feather icon-clipboard"></i> --}}
@@ -163,6 +189,8 @@
                 </li>
             </ul>
         </li>
+
+				@endif
 
         <li class="sidenav-item active">
             <a href="{{ route('demandes/admin') }}" class="sidenav-link">

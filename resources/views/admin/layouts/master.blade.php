@@ -3,7 +3,7 @@
 <html lang="en" class="material-style layout-fixed">
 
 <head>
-    <title>ADMIN-PARTICIPATION CITOYENNE</title>
+    <title>PIGIER BENIN</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,7 +17,7 @@
          <!-- survey-JS -->
     <meta name="csrf-token" content="{{csrf_token()}}">
     <!-- Google fonts -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/logo-pigier.PNG') }}">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 
@@ -105,7 +105,7 @@
                                 class="img-fluid" width="30">
                         
                         </span>
-                        <span class="app-brand-text demo font-weight-normal ml-2">{{ Auth::user()->name }}</span>
+                        <span class="app-brand-text demo font-weight-normal ml-2">{{ Auth::user()->name }} {{ Auth::user()->prename }}</span>
                     </a>
 
                     <!-- Sidenav toggle (see assets/css/demo/demo.css) -->
@@ -288,7 +288,7 @@
                                         {{-- <img src="{{ asset('assets/img/avatars/1.png') }}" alt
                                             class="d-block ui-w-30 rounded-circle"> --}}
                                             <i class="far fa-user-circle"></i>
-                                        <span class="px-1 mr-lg-2 ml-2 ml-lg-0">{{ Auth::user()->name }}</span>
+                                        <span class="px-1 mr-lg-2 ml-2 ml-lg-0">{{ Auth::user()->name }} {{ Auth::user()->prename }}</span>
                                     </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">

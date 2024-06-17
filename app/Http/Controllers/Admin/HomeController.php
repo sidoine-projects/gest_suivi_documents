@@ -4,20 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use DB;
-use Illuminate\Queue\Console\RetryCommand;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
 
-    public function __construct()
-    {
-     $this->middleware('admin');
+    // public function __construct()
+    // {
+    //     $this->middleware('role');
 
-       // $this->middleware('Auth');
-    }
+    //     // $this->middleware('Auth');
+    // }
 
     /**
      * Display a listing of the resource.
@@ -25,10 +23,11 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function home()
-     {
+    public function home()
+    {
         return view('admin/site/index');
     }
+    
     public function index()
     {
         //
@@ -40,24 +39,24 @@ class HomeController extends Controller
         $actualites = 10;
 
         //$annee = User::select('created_at')->get();
-        $years = User::select( DB::raw("(DATE_FORMAT(created_at, '%Y')) as year"))
-        ->orderBy('year')
-        ->groupBy('year')
-        ->get();
+        $years = User::select(DB::raw("(DATE_FORMAT(created_at, '%Y')) as year"))
+            ->orderBy('year')
+            ->groupBy('year')
+            ->get();
 
         $users_year = User::select(
-            
+
             DB::raw("(count(id)) as total"),
             DB::raw("(DATE_FORMAT(created_at, '%Y')) as year")
-            )
+        )
             ->orderBy('year')
             ->groupBy('year')
             ->get();
 
         //dd( $years);
-            # code...
-        return view('admin/home', compact('users_year','years','actualites', 'totalUser','totalSignalement','totalSondage','totalActualite'));
-        
+        # code...
+        return view('admin/home', compact('users_year', 'years', 'actualites', 'totalUser', 'totalSignalement', 'totalSondage', 'totalActualite'));
+
     }
 
     /**

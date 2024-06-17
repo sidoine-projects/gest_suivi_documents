@@ -45,6 +45,10 @@ class LoginController extends Controller
     public function login()
     {
 
+        if (Auth::check()) {
+            return redirect()->route('dashboard');
+        }
+
         return view('auth.login');
     }
 
@@ -59,43 +63,14 @@ class LoginController extends Controller
         $password = $request->password;
         //$id = Auth::user()->id;
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
-
-            switch (Auth::user()->role_name) {
-
-                case 'admin':
-
-                    $id = Auth::user()->id;
-                    DB::update('update users set status = ? where id = ?',[1, $id]);
-                      return redirect()->route('admin/home');
-
-                    break;
-
-                case 'users':
-                    //dd(session_status ());
-                  //  Auth::user()->status = session()->put('status', 'active');
-                 
-                  //dd($id);
-                  //User::updateOrCreate(['id' => $id], ['status' => '1' ]);
-                 // User::find($id)->update(['status' => 1]);
-                  
-                 $id = Auth::user()->id;
-                  DB::update('update users set status = ? where id = ?',[1, $id]);
-                    return redirect()->route('admin/home');
-                   
-
-                   // {{ redirect()->back()->getTargetUrl() }}
-
-                    break;
-                default:
-                return redirect()->route('admin/home');
-            }
-
-           ;
-
-            //return redirect()->intended('admin/home');
+            $id = Auth::user()->id;
+            DB::update('update users set status = ? where id = ?', [1, $id]);
+    
+            return redirect()->route('dashboard');
         } else {
             return redirect('login')->with('error', 'Oups! votre Email ou mot de passe est incorrecte');
         }
+     
     }
 
     public function logout()

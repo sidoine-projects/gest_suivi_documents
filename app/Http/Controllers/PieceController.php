@@ -9,12 +9,12 @@ use App\Models\TypePiece;
 class PieceController extends Controller
 {
 
-  public function __construct()
-    {
-        $this->middleware('admin');
+  // public function __construct()
+  //   {
+  //      $this->middleware('role');
 
-       // $this->middleware('Auth');
-    }
+  //      // $this->middleware('Auth');
+  //   }
   /**
    * Display a listing of the resource.
    *

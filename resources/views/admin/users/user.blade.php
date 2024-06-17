@@ -7,30 +7,26 @@
             border-color: red;
             font-weight: 900;
         }
-
     </style>
 
     <!-- [ Layout content ] Start -->
     <div class="layout-content">
         <!-- [ content ] Start -->
         <div class="container-fluid flex-grow-1 container-p-y">
-            <h4 class="font-weight-bold py-3 mb-0">User </h4>
+            <h4 class="font-weight-bold py-3 mb-0">Utilisateur</h4>
             <div class="text-muted small mt-0 mb-4 d-block breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="feather icon-home"></i></a></li>
-                    <li class="breadcrumb-item">User</li>
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="feather icon-home"></i></a></li>
+                    <li class="breadcrumb-item">Utilisateur</li>
 
                 </ol>
             </div>
-
-
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="card mb-4">
-                        <h6 class="card-header"><i class="feather icon-user"></i> User Infomation</h6>
+                        <h6 class="card-header"><i class="feather icon-user"></i> Utilisateur Infomation</h6>
 
                         <div class="card-body">
-
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     @if (\Session::has('insert'))
@@ -80,8 +76,6 @@
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
-
-
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-2 text-sm-right">Email</label>
                                     <div class="col-sm-10">
@@ -97,13 +91,12 @@
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-2 text-sm-right">Téléphone</label>
                                     <div class="col-sm-10">
-                                        <input id="tel" type="tel" class="form-control @error('tel') is-invalid @enderror"
-                                            name="tel" value="{{ old('tel') }}" autocomplete="tel"
-                                            placeholder="Votre Téléphone">
+                                        <input id="tel" type="tel"
+                                            class="form-control @error('tel') is-invalid @enderror" name="tel"
+                                            value="{{ old('tel') }}" autocomplete="tel" placeholder="Votre Téléphone">
                                         @error('tel')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -112,9 +105,6 @@
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
-
-
-
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-2 text-sm-right">Password</label>
                                     <div class="col-sm-10">
@@ -129,11 +119,6 @@
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
-
-
-
-
-
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-2 text-sm-right">Password Confirmation</label>
                                     <div class="col-sm-10">
@@ -143,85 +128,26 @@
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
-
-
-
-
-
-
-
-
-
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-2 text-sm-right"></label>
-                                    <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-primary">Enregistrer</button>
-                                        <button type="reset" class="btn btn-danger">Annuler</button>
-                                        <div class="clearfix"></div>
+                                    <div class="col-sm-10 d-flex justify-content-between align-items-center">
+                                        <button type="reset" class="btn btn-secondary">Annuler</button>
+                                        @if (auth()->user()->role_name === 'super_admin')
+                                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                            <!-- Bouton "Enregistrer" activé pour super_admin -->
+                                        @else
+                                            <button type="submit" class="btn btn-primary" disabled>Enregistrer</button>
+                                            <!-- Bouton "Enregistrer" désactivé pour les autres -->
+                                        @endif
+
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
-
-
-                <div class="col-md-6">
-                    <div class="card mb-4">
-                        <h6 class="card-header"><i class="feather icon-user"></i> Liste Users</h6>
-
-                        <div class="card-body">
-                            <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
-                                <thead>
-                                    <tr>
-
-
-                                        <th>Nom</th>
-                                        <th>Prenom</th>
-                                        <th>Email</th>
-                                        <th>Tel</th>
-                                        <th>Action</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($users as $item)
-                                        <tr>
-                                            <td>{{$item->name}}</td>
-                                            <td>{{$item->prename}}</td>
-                                            <td>{{$item->email}}</td>
-                                            <td>{{$item->tel}}</td>
-                                          
-                                            {{-- <td class="id"> {{ \App\Models\Annee::where(['id'=>$item->annee_id ])->first()->annee}}</td>
-                                            <td class="id"> {{ \App\Models\Dimension::where(['id'=>$item->dimenesion_id ])->first()->libelle}}</td>
-                                            <td class="id"> {{ \App\Models\Sexe::where(['id'=>$item->sexe_id ])->first()->libelle}}</td> --}}
-
-
-                                            <td class="text-center">
-                                                <a href="{{ url('admin/user/update/'.$item->id) }}" class="m-r-15 text-muted userUpdate">
-                                                    <i class="fa fa-edit" style="color: #2196f3;"></i>
-                                                </a>
-                                                <a href="{{ url('admin/user/delete/'.$item->id) }}" onclick="return confirm('Are you sure to want to delete it?')"><i class="fa fa-trash" style="color: red;"></i></a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-
-
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
-
-            <!-- [ content ] End -->
         </div>
-
-        <!-- [ Layout footer ] Start -->
-
-        <!-- [ Layout footer ] End -->
     </div>
 
     <!-- [ Layout content ] Start -->

@@ -5,7 +5,6 @@
         border-color: red;
         font-weight: 900;
     }
-
 </style>
 
 @section('content')
@@ -51,27 +50,30 @@
                         {{ csrf_field() }}
 
                         <input type="hidden" class="form-control" id="id" name="id"
-                        value="{{ $data->id }}">
+                            value="{{ $data->id }}">
 
-        
+
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2 text-sm-right">Profil</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="profil" name="profil" style="text-transform: uppercase;"
-                                    value="{{ $data->profil }}">
+                                <input type="text" class="form-control" id="profil" name="profil"
+                                    style="text-transform: uppercase;" value="{{ $data->profil }}">
                                 <div class="clearfix"></div>
                             </div>
                         </div>
 
-
-
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2 text-sm-right"></label>
-                            <div class="col-sm-10">
-                                <button type="submit" id="update" name="update" class="btn btn-warning">Modifier</button>
-                                <a href="{{ route('profils') }}" class="m-r-15  btn btn-primary text-white ">Retour</a>
-
-                                <div class="clearfix"></div>
+                            <div class="col-sm-10 d-flex justify-content-between align-items-center">
+                                <a href="{{ route('profils') }}" class="m-r-15  btn btn-secondary text-white ">Retour</a>
+                                @if (auth()->user()->role_name == 'super_admin')
+                                <button type="submit" id="update" name="update" class="btn btn-primary">Modifier</button>
+                                    <!-- Bouton "Enregistrer" activé pour super_admin -->
+                                @else
+                                    <button type="submit" class="btn btn-primary" disabled>Enregistrer</button>
+                                    <!-- Bouton "Enregistrer" désactivé pour les autres -->
+                                @endif
+                               
                             </div>
                         </div>
                     </form>
@@ -84,12 +86,11 @@
 
 
         <!-- [ Layout footer ] Start -->
-    
+
         <!-- [ Layout footer ] End -->
     </div>
 
     <!-- [ Layout content ] Start -->
-
 @endsection
 @section('script')
     {{-- hide message js --}}
@@ -106,7 +107,7 @@
 
             },
             messages: {
-               
+
                 profil: "saisissez un profil*",
 
             }

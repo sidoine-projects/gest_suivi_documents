@@ -25,6 +25,7 @@ Auth::routes();
 
 Route::get('/dashboard', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('dashboard');
 Route::get('/', [App\Http\Controllers\Admin\SiteController::class, 'home'])->name('site');
+Route::get('/error-site', [App\Http\Controllers\Admin\SiteController::class, 'error'])->name('error-site');
 
 
 
@@ -39,7 +40,7 @@ Route::get('user-pagination', function () {
     return view('default');
 });
 
-Route::get('admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin/home');
+Route::get('dashboard', [App\Http\Controllers\Admin\HomeController::class, 'index'])->middleware('auth')->name('dashboard');
 Route::post('admin', [App\Http\Controllers\Admin\HomeController::class, 'update'])->name('admin/home');
 
 
@@ -48,19 +49,11 @@ Route::get('login/user', [App\Http\Controllers\Auth\LoginController::class, 'log
 Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'authenticate'])->name('authentificate');
 Route::get('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-
 // ------------------------------register---------------------------------------
 //Route::get('register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
 Route::get('register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
 Route::post('register', [App\Http\Controllers\Auth\RegisterController::class, 'storeUser'])->name('register');
 
-// ------------------------------register---------------------------------------
-Route::get('admin/register', [App\Http\Controllers\Auth\RegisterController::class, 'registerAdmin'])->name('admin/register');
-Route::post('admin/register', [App\Http\Controllers\Auth\RegisterController::class, 'storeAdmin'])->name('admin/register');
-Route::get('admin/user/update/{id}', [App\Http\Controllers\Auth\RegisterController::class, 'update']);
-Route::post('admin/user/edit', [App\Http\Controllers\Auth\RegisterController::class, 'edit'])->name('admin/user/edit'); //Enregistrer departement
-
-Route::get('admin/user/delete/{id}', [App\Http\Controllers\Auth\RegisterController::class, 'delete']);
 
 // ----
 
@@ -89,8 +82,29 @@ Route::post('role/user/update', [App\Http\Controllers\UserManagementController::
 Route::get('role/user/view/report', [App\Http\Controllers\UserManagementController::class, 'viewReport'])->name('role/user/view/report');
 Route::get('role/delete/{id}', [App\Http\Controllers\UserManagementController::class, 'delete']);*/
 
+// ------------------------------admin register---------------------------------------
+// Route::get('admin/register', [App\Http\Controllers\Admin\Auth\RegisterController::class, 'registerAdmin'])->name('admin/register');
+// Route::get('admin/users', [App\Http\Controllers\Admin\Auth\RegisterController::class, 'index'])->name('admin/users');
+// Route::post('admin/register', [App\Http\Controllers\Admin\Auth\RegisterController::class, 'storeAdmin'])->name('admin/register');
+// Route::get('admin/user/update/{id}', [App\Http\Controllers\Admin\Auth\RegisterController::class, 'update']);
+// Route::post('admin/user/edit', [App\Http\Controllers\Admin\Auth\RegisterController::class, 'edit'])->name('admin/user/edit'); //Enregistrer departement
+// Route::get('admin/user/delete/{id}', [App\Http\Controllers\Admin\Auth\RegisterController::class, 'delete']);
 
-//Important -----------------------------profils-----------------------------------------
+
+Route::get('/getMontant', [App\Http\Controllers\PieceController::class, 'getMontant']); // Liste departement
+
+
+Route::group(['middleware' => ['role:admin,super_admin']], function () {
+
+// ------------------------------Admin users ---------------------------------------
+Route::get('admin/register', [App\Http\Controllers\Auth\RegisterController::class, 'registerAdmin'])->name('admin/register');
+Route::post('admin/register', [App\Http\Controllers\Auth\RegisterController::class, 'storeAdmin'])->name('admin/register');
+Route::get('admin/user/update/{id}', [App\Http\Controllers\Auth\RegisterController::class, 'update']);
+Route::post('admin/user/edit', [App\Http\Controllers\Auth\RegisterController::class, 'edit'])->name('admin/user/edit'); //Enregistrer departement
+Route::get('admin/user/delete/{id}', [App\Http\Controllers\Auth\RegisterController::class, 'delete']);
+Route::get('admin/users', [App\Http\Controllers\Auth\RegisterController::class, 'index'])->name('admin/users');
+
+    //Important -----------------------------profils-----------------------------------------
 //Route::get('profils/new', [App\Http\Controllers\ProfilController::class, 'create'])->name('profils/new'); //New departement
 Route::get('profil/new', [App\Http\Controllers\ProfilController::class, 'create'])->name('profil/new'); // Liste departement
 Route::get('profils', [App\Http\Controllers\ProfilController::class, 'index'])->name('profils'); // Liste departement
@@ -111,9 +125,6 @@ Route::post('typepieces/edit', [App\Http\Controllers\TypepieceController::class,
 Route::get('admin/typepieces/delete/{id}', [App\Http\Controllers\TypepieceController::class, 'delete']);
 
 
-Route::get('/getMontant', [App\Http\Controllers\PieceController::class, 'getMontant']); // Liste departement
-
-
 //Important -----------------------------Pieces-----------------------------------------
 //Route::get('profils/new', [App\Http\Controllers\ProfilController::class, 'create'])->name('profils/new'); //New departement
 Route::get('piece/new', [App\Http\Controllers\PieceController::class, 'create'])->name('piece/new'); // Liste departement
@@ -124,7 +135,16 @@ Route::get('admin/piece/update/{id}', [App\Http\Controllers\PieceController::cla
 Route::post('piece/edit', [App\Http\Controllers\PieceController::class, 'edit'])->name('piece/edit'); //Enregistrer departement
 Route::get('admin/piece/delete/{id}', [App\Http\Controllers\PieceController::class, 'delete']);
 
+//Important -----------------------------Liste des demandes-----------------------------------------
+Route::get('liste/demandes', [App\Http\Controllers\DemandeController::class, 'indexAdmin'])->name('demandes/admin'); // Liste departement
 
+//Important -----------------------------Suivi Demande-----------------------------------------
+Route::post('suivi/demande', [App\Http\Controllers\SuiviDemandeController::class, 'store'])->name('suivi/demande');
+Route::get('suivi/demande/delete/{id}', [App\Http\Controllers\SuiviDemandeController::class, 'destroy']);
+
+});
+
+Route::group(['middleware' => ['role:super_admin,etudiant,enseignant']], function () {
 //Important -----------------------------Demandes-----------------------------------------
 //Route::get('profils/new', [App\Http\Controllers\ProfilController::class, 'create'])->name('profils/new'); //New departement
 Route::get('demande/new', [App\Http\Controllers\DemandeController::class, 'create'])->name('demandes/new'); // Liste departement
@@ -134,8 +154,6 @@ Route::post('admin/demandes/save', [App\Http\Controllers\DemandeController::clas
 Route::get('admin/demandes/update/{id}', [App\Http\Controllers\DemandeController::class, 'update']); //Modifier departement
 Route::post('demandes/edit', [App\Http\Controllers\DemandeController::class, 'edit'])->name('demandes/edit'); //Enregistrer departement
 Route::get('admin/demandes/delete/{id}', [App\Http\Controllers\DemandeController::class, 'delete']);
-Route::get('liste/demandes', [App\Http\Controllers\DemandeController::class, 'indexAdmin'])->name('demandes/admin'); // Liste departement
+});
 
-//Important -----------------------------Suivi Demande-----------------------------------------
-Route::post('suivi/demande', [App\Http\Controllers\SuiviDemandeController::class, 'store'])->name('suivi/demande');
-Route::get('suivi/demande/delete/{id}', [App\Http\Controllers\SuiviDemandeController::class, 'destroy']);
+

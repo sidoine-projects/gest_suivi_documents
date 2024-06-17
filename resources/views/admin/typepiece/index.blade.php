@@ -9,6 +9,11 @@
         font-weight: 900;
     }
 
+    .disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
 </style>
 
 <!-- [ Layout content ] Start -->
@@ -44,11 +49,28 @@
                             @foreach ($typepieces as $item)
                                 <tr>
                                     <td class="id" style="text-transform: uppercase;">{{ $item->typepiece }}</td>
-                                    <td class="text-right">
+                                    {{-- <td class="text-right">
                                         <a href="{{ url('admin/typepieces/update/'.$item->id) }}" class="m-r-15 text-muted userUpdate">
                                             <i class="fa fa-edit" style="color: #2196f3;"></i>
                                         </a>
                                         <a href="{{ url('admin/typepieces/delete/'.$item->id) }}" onclick="return confirm('Etes vous sûr de vouloir supprimer ceci ?')"><i class="fa fa-trash" style="color: red;"></i></a>
+                                    </td> --}}
+                                    <td class="text-right">
+                                        @if (auth()->user()->role_name === 'super_admin')
+                                            <a href="{{ url('admin/typepieces/update/'.$item->id) }}" class="m-r-15 text-muted userUpdate">
+                                                <i class="fa fa-edit" style="color: #2196f3;"></i>
+                                            </a>
+                                            <a href="{{ url('admin/typepieces/delete/'.$item->id) }}" onclick="return confirm('Etes vous sûr de vouloir supprimer ceci ?')">
+                                                <i class="fa fa-trash" style="color: red;"></i>
+                                            </a>
+                                        @else
+                                            <a href="#" class="m-r-15 text-muted userUpdate disabled" aria-disabled="true" tabindex="-1" style="pointer-events: none;">
+                                                <i class="fa fa-edit" style="color: #2196f3;"></i>
+                                            </a>
+                                            <a href="#" class="disabled" aria-disabled="true" tabindex="-1" style="pointer-events: none;">
+                                                <i class="fa fa-trash" style="color: red;"></i>
+                                            </a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

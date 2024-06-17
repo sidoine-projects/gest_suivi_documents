@@ -8,15 +8,17 @@ use Illuminate\Http\Request;
 
 class DemandeController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('admin');
-    }
+    // public function __construct()
+    // {
+    //    $this->middleware('role');
+    // }
 
     public function index()
     {
-        $demandes = Demande::all();
-        
+        $user = auth()->user();
+
+        // Récupérer les demandes de l'utilisateur authentifié
+        $demandes = Demande::where('user_id', $user->id)->get();
         return view("admin.demandes.index", compact("demandes"));
 
     }
@@ -32,7 +34,16 @@ class DemandeController extends Controller
     public function create()
     {
         $code = $this->generateUniqueCode();
-        $pieces = Pieces::all();
+
+        $roleName = auth()->user()->role_name;
+        // Récupérer les pièces en fonction du rôle
+        if ($roleName == 'etudiant') {
+            $pieces = Pieces::where('id', 1)->get();
+        } elseif ($roleName == 'enseignant') {
+            $pieces = Pieces::where('id', 2)->get();
+        } else {
+            $pieces = Pieces::all();
+        }
         return view('admin.demandes.demandes', compact("pieces", "code"));
     }
 

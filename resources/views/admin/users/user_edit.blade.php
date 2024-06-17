@@ -13,17 +13,17 @@
     <div class="layout-content">
         <!-- [ content ] Start -->
         <div class="container-fluid flex-grow-1 container-p-y">
-            <h4 class="font-weight-bold py-3 mb-0">user / Update</h4>
+            <h4 class="font-weight-bold py-3 mb-0">utilisateur/Modifier</h4>
             <div class="text-muted small mt-0 mb-4 d-block breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="feather icon-home"></i></a></li>
-                    <li class="breadcrumb-item">user Update</li>
-                    <li class="breadcrumb-item active">user Update</li>
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="feather icon-home"></i></a></li>
+                    <li class="breadcrumb-item">utilisateur Modifier</li>
+                    <li class="breadcrumb-item active">utilisateur Modifier</li>
                 </ol>
             </div>
 
             <div class="card mb-4">
-                <h6 class="card-header"><i class="feather icon-user"></i> user Update</h6>
+                <h6 class="card-header"><i class="feather icon-user"></i>utilisateur Modifier</h6>
 
                 <div class="card-body ">
 
@@ -45,13 +45,8 @@
                             <div class="clearfix"></div>
                         </div>
                     </div>
-
-
-
-
                     <form method="POST" action="{{ route('admin/user/edit') }}" class="my-5">
                         @csrf
-
                         <div class="row col-md-12">
 
                             <div class="col-md-6">
@@ -141,13 +136,17 @@
                             </div>
                         </div>
 
-                        <div class="form-group row col-md-12 text-center">
+                        <div class="form-group row">
                             <label class="col-form-label col-sm-2 text-sm-right"></label>
-                            <div class="col-sm-12">
-                                <button type="submit"  id="update" name = "update" class="btn btn-primary">Modifier</button>
-                                <a href="{{ route('admin/register') }}" class="m-r-15  btn btn-danger text-white ">Retour</a>
-    
-                                <div class="clearfix"></div>
+                            <div class="col-sm-12 d-flex justify-content-between align-items-center">
+                                <a href="{{ route('admin/users') }}" class="m-r-15  btn btn-secondary text-white ">Retour</a>
+                                @if (auth()->user()->role_name == 'super_admin')
+                                <button type="submit" id="update" name="update" class="btn btn-primary">Modifier</button>
+                                    <!-- Bouton "Enregistrer" activé pour super_admin -->
+                                @else
+                                    <button type="submit" class="btn btn-primary" disabled>Enregistrer</button>
+                                    <!-- Bouton "Enregistrer" désactivé pour les autres -->
+                                @endif  
                             </div>
                         </div>
 

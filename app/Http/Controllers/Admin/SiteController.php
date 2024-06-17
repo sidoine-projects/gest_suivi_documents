@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Queue\Console\RetryCommand;
 
 class SiteController extends Controller
 {
@@ -12,8 +11,7 @@ class SiteController extends Controller
     public function __construct()
     {
 
-
-       // $this->middleware('Auth');
+        // $this->middleware('Auth');
     }
 
     /**
@@ -22,11 +20,15 @@ class SiteController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function home()
-     {
+    public function home()
+    {
         return view('admin/site/index');
     }
-  
+
+    public function error()
+    {
+        return view('admin/error-pages/error-404');
+    }
 
     /**
      * Show the form for creating a new resource.
