@@ -10,6 +10,7 @@
 
     <!-- Title -->
     <title>PIGIER_ACAD</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/logo-pigier.PNG') }}">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ asset('assets/import2/style.css') }}">
@@ -341,7 +342,7 @@
                             <p class="copywrite-text"><a href="#">Copyright &copy;
                                     <script>
                                         document.write(new Date().getFullYear());
-                                    </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                                    </script> All rights reserved | PIGIER Acad <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
                         </div>
                     </div>
                 </div>
