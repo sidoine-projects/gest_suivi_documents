@@ -342,7 +342,7 @@
                             <p class="copywrite-text"><a href="#">Copyright &copy;
                                     <script>
                                         document.write(new Date().getFullYear());
-                                    </script> All rights reserved | PIGIER Acad <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                                    </script> All rights reserved | PIGIER Acad </p>
                         </div>
                     </div>
                 </div>
