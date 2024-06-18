@@ -35,6 +35,12 @@
                                             {!! \Session::get('insert') !!}
                                         </div>
                                     @endif
+                                    @if (\Session::has('warning'))
+                                    <div id="hide-message" class="alert alert-warning alert-dismissible fade show">
+                                        <i class="feather icon-check-circle" style="font-size:1em"></i>
+                                        {!! \Session::get('warning') !!}
+                                    </div>
+                                @endif
 
                                     @if (\Session::has('error'))
                                         <div id="hide-message" class="alert alert-danger alert-dismissible fade show">
@@ -50,7 +56,7 @@
                                 <div class="form-group row">
                                     <label class="col-form-label col-sm-2 text-sm-right">Nom</label>
                                     <div class="col-sm-10">
-                                        <input id="name" type="text"
+                                        <input id="name" type="text" style="text-transform: uppercase;"
                                             class="form-control @error('name') is-invalid @enderror" name="name"
                                             value="{{ old('name') }}" autocomplete="name" autofocus placeholder="Nom">
                                         @error('name')

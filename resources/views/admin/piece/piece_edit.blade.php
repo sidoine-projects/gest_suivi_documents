@@ -44,14 +44,14 @@
             <div class="clearfix"></div>
           </div>
         </div>
-        <form id="" action="{{ route('piece/edit') }}" method="POST">
+        <form id="validation" action="{{ route('piece/edit') }}" method="POST">
           {{ csrf_field() }}
 
           <input type="hidden" class="form-control" id="id" name="id" value="{{ $data->id }}">
           <div class="form-group row">
             <label class="col-form-label col-sm-2 text-sm-right">Types de Piece</label>
             <div class="col-sm-10">
-              <select class="form-control" id="typepiece_id" name="typepiece_id">
+              <select required class="form-control" id="typepiece_id" name="typepiece_id">
                 @foreach($typesPieces as $typePiece)
                 <option value="{{ $typePiece->id }}" {{ $typePiece->id == $data->typepiece_id ? 'selected' : '' }}>
                   {{ $typePiece->typepiece }}
@@ -64,14 +64,14 @@
           <div class="form-group row">
             <label class="col-form-label col-sm-2 text-sm-right">Pieces</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="piece" name="piece" style="text-transform: uppercase;" value="{{ $data->piece }}">
+              <input required type="text" class="form-control" id="piece" name="piece" style="text-transform: uppercase;" value="{{ $data->piece }}">
               <div class="clearfix"></div>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-form-label col-sm-2 text-sm-right">Montant</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="piece" name="montant" style="text-transform: uppercase;" value="{{ $data->montant }}">
+              <input required type="text" class="form-control" id="piece" name="montant" style="text-transform: uppercase;" value="{{ $data->montant }}">
               <div class="clearfix"></div>
             </div>
           </div>
@@ -102,6 +102,7 @@
 @endsection
 @section('script')
 {{-- hide message js --}}
+<script src="{{asset('assets/js/jquery.validate.js') }}"></script>
 
 
 <script>

@@ -23,8 +23,8 @@ class CreateUsersTable extends Migration
             $table->string('adresse')->nullable();
             $table->string('status')->nullable();
             $table->string('role_name')->nullable()->default('users');
-            $table->unsignedBigInteger('profil_id');
-            $table->foreign('profil_id')->references('id')->on('profils');
+            $table->unsignedBigInteger('profil_id')->nullable(); // Rend profil_id nullable
+            $table->foreign('profil_id')->references('id')->on('profils')->onDelete('cascade');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

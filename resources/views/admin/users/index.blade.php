@@ -28,11 +28,30 @@
                     <div class="card mb-4">
                         <h6 class="card-header"><i class="feather icon-user"></i> Liste des utilisateurs</h6>
                         <div class="card-body">
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    @if (\Session::has('insert'))
+                                        <div id="hide-message" class="alert alert-success alert-dismissible fade show">
+                                            <i class="feather icon-check-circle" style="font-size:1em"></i>
+                                            {!! \Session::get('insert') !!}
+                                        </div>
+                                    @endif
+        
+                                    @if (\Session::has('error'))
+                                        <div id="hide-message" class="alert alert-danger alert-dismissible fade show">
+                                            <i class="feather icon-check-circle" style="font-size:1em"></i>
+                                            {!! \Session::get('error') !!}
+                                        </div>
+                                    @endif
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
                             <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>Nom</th>
                                         <th>Prenom</th>
+                                        <th>Profil</th>
                                         <th>Email</th>
                                         <th>Tel</th>
                                         <th class="text-center">Action</th>
@@ -44,6 +63,7 @@
                                         <tr>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->prename }}</td>
+                                            <td style="text-transform: uppercase" >{{ $item->role_name }}</td>
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->tel }}</td>
                                             <td class="text-center">

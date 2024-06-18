@@ -44,7 +44,7 @@
                             <div class="clearfix"></div>
                         </div>
                     </div>
-                    <form id="" action="{{ route('profils/edit') }}" method="POST">
+                    <form id="validation" action="{{ route('profils/edit') }}" method="POST">
 
 
                         {{ csrf_field() }}
@@ -56,7 +56,7 @@
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2 text-sm-right">Profil</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="profil" name="profil"
+                                <input type="text" class="form-control" id="profil" name="profil" required
                                     style="text-transform: uppercase;" value="{{ $data->profil }}">
                                 <div class="clearfix"></div>
                             </div>
@@ -94,7 +94,7 @@
 @endsection
 @section('script')
     {{-- hide message js --}}
-
+    <script src="{{ asset('assets/js/jquery.validate.js') }}"></script>
     <script>
         $('#validation').validate({
             reles: {

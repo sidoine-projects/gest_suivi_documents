@@ -142,7 +142,7 @@
           <div class="row text-center mt-5">
             <div class="col-12 mt-xl-5">
                 <p class="text-white font-weight-medium text-center"> Copyright &copy;
-                    @<?php $Year = date('Y'); ?> {{ $Year }} EduDoC All rights reserved - PIGIER BENIN.</p>
+                    @<?php $Year = date('Y'); ?> {{ $Year }} PIGIER Acad All rights reserved - PIGIER BENIN.</p>
             </div>
         </div>
       </div>

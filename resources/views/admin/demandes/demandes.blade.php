@@ -84,7 +84,7 @@
                             <div class="form-group row">
                                 <label class="col-form-label  text-sm-right">Description</label>
                                 <div class="col-sm-12">
-                                    <textarea class="form-control" rows=6 id="profil" style="text-transform: uppercase;" name="description"
+                                    <textarea class="form-control" rows=6 id="profil"  name="description"
                                         placeholder="Description"></textarea>
                                     <div class="clearfix"></div>
                                 </div>
@@ -131,6 +131,7 @@
 
                 FedaPay.init('#paiementEnLigneBtn', {
                     public_key: 'pk_sandbox_cdiapMSeRJxMt6rwvjP7t2Ns',
+                    // public_key: 'pk_live_ig89rP3GtC39WV4w32fjKM-_',
                     transaction: {
                         amount: montantInput.value,
                         description: 'Reglement du BFU',

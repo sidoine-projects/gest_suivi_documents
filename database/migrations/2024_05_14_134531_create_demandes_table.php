@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('demandes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('piece_id');
-            $table->foreign('piece_id')->references('id')->on('pieces');
+            $table->foreign('piece_id')->references('id')->on('pieces')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('statut');
             $table->string('description')->nullable();
             $table->integer('numero');

@@ -18,7 +18,9 @@ class DemandeController extends Controller
         $user = auth()->user();
 
         // Récupérer les demandes de l'utilisateur authentifié
-        $demandes = Demande::where('user_id', $user->id)->get();
+        $demandes = Demande::where('user_id', $user->id)
+        ->with('suiviDemande')
+        ->get();
         return view("admin.demandes.index", compact("demandes"));
 
     }
@@ -99,7 +101,9 @@ class DemandeController extends Controller
 
             $demande->save();
 
-            return redirect()->back()->with('success', 'Demande enregistrée avec succès.');
+            // return redirect()->back()->with('success', 'Demande enregistrée avec succès.');
+            return redirect()->route('demandes')->with('insert', 'Demande enregistrée avec succès.');
+
         } else {
             return redirect()->back()->with('error', 'Demande échouée.');
         }

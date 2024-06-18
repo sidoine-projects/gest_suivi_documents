@@ -104,17 +104,13 @@
     <script>
         $('#validation').validate({
             reles: {
-                code: {
+                profil: {
                     required: true,
                 },
-                categorie: {
-                    required: true,
-                }
-
             },
             messages: {
-                code: "saisissez un code*",
-                categorie: "saisissez une Categorie*",
+                profil: "Ce champs est obligatoire",
+
 
             }
         });

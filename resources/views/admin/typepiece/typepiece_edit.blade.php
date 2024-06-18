@@ -45,7 +45,7 @@
                             <div class="clearfix"></div>
                         </div>
                     </div>
-                    <form id="" action="{{ route('typepieces/edit') }}" method="POST">
+                    <form id="validation" action="{{ route('typepieces/edit') }}" method="POST">
 
 
                         {{ csrf_field() }}
@@ -57,7 +57,7 @@
                         <div class="form-group row">
                             <label class="col-form-label col-sm-2 text-sm-right">Types de piece</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="typepiece" name="typepiece" style="text-transform: uppercase;"
+                                <input type="text" class="form-control" id="typepiece" name="typepiece" style="text-transform: uppercase;" required
                                     value="{{ $data->typepiece }}">
                                 <div class="clearfix"></div>
                             </div>
@@ -96,6 +96,7 @@
 @endsection
 @section('script')
     {{-- hide message js --}}
+    <script src="{{asset('assets/js/jquery.validate.js') }}"></script>
 
     <script>
         $('#validation').validate({
@@ -103,14 +104,14 @@
                 code: {
                     required: true,
                 },
-                profil: {
+                typepiece: {
                     required: true,
                 }
 
             },
             messages: {
                
-                profil: "saisissez un profil*",
+                typepiece: "Ce champs est obligatoire",
 
             }
         });

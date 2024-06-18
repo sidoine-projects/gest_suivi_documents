@@ -63,10 +63,11 @@
                                         <tr>
                                             <td class="demande-id" style="display: none;">{{ $item->id }}</td>
                                             <td style="text-transform: uppercase;">{{ $item->numero }}</td>
-                                            <td style="text-transform: uppercase;">{{ $item->numero }}</td>
                                             <td style="text-transform: uppercase;">{{ $item->user->name }}
                                                 {{ $item->user->prename }}</td>
-                                            <td style="text-transform: uppercase;">{{ $item->description }}
+                                                <td style="text-transform: uppercase;">{{ $item->piece->piece}}</td>
+
+                                            <td >{{ $item->description }}
                                             </td>
                                             <td style="text-transform: uppercase;">
                                                 @if ($item->statut == 1)

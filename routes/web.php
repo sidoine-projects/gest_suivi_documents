@@ -104,7 +104,7 @@ Route::post('admin/user/edit', [App\Http\Controllers\Auth\RegisterController::cl
 Route::get('admin/user/delete/{id}', [App\Http\Controllers\Auth\RegisterController::class, 'delete']);
 Route::get('admin/users', [App\Http\Controllers\Auth\RegisterController::class, 'index'])->name('admin/users');
 
-    //Important -----------------------------profils-----------------------------------------
+//Important -----------------------------profils-----------------------------------------
 //Route::get('profils/new', [App\Http\Controllers\ProfilController::class, 'create'])->name('profils/new'); //New departement
 Route::get('profil/new', [App\Http\Controllers\ProfilController::class, 'create'])->name('profil/new'); // Liste departement
 Route::get('profils', [App\Http\Controllers\ProfilController::class, 'index'])->name('profils'); // Liste departement
@@ -154,6 +154,11 @@ Route::post('admin/demandes/save', [App\Http\Controllers\DemandeController::clas
 Route::get('admin/demandes/update/{id}', [App\Http\Controllers\DemandeController::class, 'update']); //Modifier departement
 Route::post('demandes/edit', [App\Http\Controllers\DemandeController::class, 'edit'])->name('demandes/edit'); //Enregistrer departement
 Route::get('admin/demandes/delete/{id}', [App\Http\Controllers\DemandeController::class, 'delete']);
+});
+
+Route::group(['middleware' => ['role:super_admin,etudiant,enseignant,admin']], function () {
+Route::get('user/update/{id}', [App\Http\Controllers\Auth\RegisterController::class, 'profilUpdate']);
+Route::post('user/edit', [App\Http\Controllers\Auth\RegisterController::class, 'profilEdit'])->name('user/edit'); //Enregistrer departement
 });
 
 

@@ -44,8 +44,8 @@
                                         @csrf
 
                                         <div class="form-group row">
-                                            <div class="col-sm-12 mb-3 mb-sm-0">
-                                                <input id="name" type="text"
+                                            <div class="col-sm-12 mb-3 mb-sm-0"> 
+                                                <input id="name" type="text" style="text-transform: uppercase;"
                                                     class="form-control @error('name') is-invalid @enderror"
                                                     name="name" value="{{ old('name') }}" autocomplete="name"
                                                     autofocus placeholder="Nom">

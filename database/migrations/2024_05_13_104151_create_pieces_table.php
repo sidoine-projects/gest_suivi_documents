@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pieces', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('typepiece_id');
-            $table->foreign('typepiece_id')->references('id')->on('type_pieces');
+            $table->foreign('typepiece_id')->references('id')->on('type_pieces')->onDelete('cascade');
             $table->string('piece');
             $table->integer('montant');
             $table->timestamps();
