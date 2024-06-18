@@ -24,7 +24,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-12">
                     <div class="card mb-4">
                         <h6 class="card-header"><i class="feather icon-user"></i> Liste des Demandes </h6>
                         <div class="card-body">
@@ -49,6 +49,8 @@
                             <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
                                 <thead>
                                     <tr>
+                                        <th>Date demande</th>
+                                        <th style="display: none;">id</th>
                                         <th>N° Demande</th>
                                         <th>Nom & Prénom</th>
                                         <th>Pièce</th>
@@ -61,13 +63,15 @@
                                 <tbody>
                                     @foreach ($demandes as $item)
                                         <tr>
+                                            <td style="text-transform: uppercase;">
+                                                {{ Carbon\Carbon::parse($item->created_at)->format('d/m/Y') }}</td>
                                             <td class="demande-id" style="display: none;">{{ $item->id }}</td>
                                             <td style="text-transform: uppercase;">{{ $item->numero }}</td>
                                             <td style="text-transform: uppercase;">{{ $item->user->name }}
                                                 {{ $item->user->prename }}</td>
-                                                <td style="text-transform: uppercase;">{{ $item->piece->piece}}</td>
+                                            <td style="text-transform: uppercase;">{{ $item->piece->piece }}</td>
 
-                                            <td >{{ $item->description }}
+                                            <td>{{ $item->description }}
                                             </td>
                                             <td style="text-transform: uppercase;">
                                                 @if ($item->statut == 1)
@@ -116,6 +120,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+
 
                         </div>
                     </div>
@@ -210,6 +215,7 @@
     <!-- [ Layout content ] Start -->
 @endsection
 @section('script')
+
     <!-- library js validate -->
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script> --}}

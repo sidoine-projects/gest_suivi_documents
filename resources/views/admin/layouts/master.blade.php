@@ -9,13 +9,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <meta name="description"
-        content="participation citolyenne, MAirie de cotonou." />
-    <meta name="keywords"
-        content="participation citolyenne, Benin, Mairie de coronou">
+    <meta name="description" content="participation citolyenne, MAirie de cotonou." />
+    <meta name="keywords" content="participation citolyenne, Benin, Mairie de coronou">
     <meta name="AKPAGNONNIDE SIDOINE" content="participation citoyenne" />
-         <!-- survey-JS -->
-    <meta name="csrf-token" content="{{csrf_token()}}">
+    <!-- survey-JS -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Google fonts -->
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/logo-pigier.PNG') }}">
 
@@ -40,20 +38,21 @@
 
     @livewireStyles
 
-{{-- ----------------------datatable --}}
-{{-- A  remettre --}}
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" />
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    {{-- ----------------------datatable --}}
+    {{-- A  remettre --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 
-<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css"
+        type="text/css" />
 
     {{-- <link rel="stylesheet" href="{{'assets/css/datatable/dataTables.bootstrap4.min.css'}}" />
     <link rel="stylesheet" href="{{'assets/css/datatable/jquery.dataTables.min.css'}}">
     <link rel="stylesheet" href="{{'assets/css/datatable/responsive.bootstrap4.min.css'}}" type="text/css" /> --}}
     @yield('style')
-{{-- ----------------------datatable --}}
+    {{-- ----------------------datatable --}}
 
-<script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+    <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
 
 </head>
 
@@ -71,7 +70,6 @@
         font-size: 45px !important;
         margin-top: 5px !important;
     }
-
 </style>
 
 <body>
@@ -101,11 +99,12 @@
                     <!-- Brand demo (see assets/css/demo/demo.css) -->
                     <a href="index.html" class="navbar-brand app-brand demo d-lg-none py-0 mr-4">
                         <span class="app-brand-logo demo">
-                            <img src="{{ asset('assets/images/logo-pigier.PNG') }}" alt="Brand Logo"
-                                class="img-fluid" width="30">
-                        
+                            <img src="{{ asset('assets/images/logo-pigier.PNG') }}" alt="Brand Logo" class="img-fluid"
+                                width="30">
+
                         </span>
-                        <span class="app-brand-text demo font-weight-normal ml-2">{{ Auth::user()->name }} {{ Auth::user()->prename }}</span>
+                        <span class="app-brand-text demo font-weight-normal ml-2">{{ Auth::user()->name }}
+                            {{ Auth::user()->prename }}</span>
                     </a>
 
                     <!-- Sidenav toggle (see assets/css/demo/demo.css) -->
@@ -287,21 +286,22 @@
                                     <span class="d-inline-flex flex-lg-row-reverse align-items-center align-middle">
                                         {{-- <img src="{{ asset('assets/img/avatars/1.png') }}" alt
                                             class="d-block ui-w-30 rounded-circle"> --}}
-                                            <i class="far fa-user-circle"></i>
-                                        <span class="px-1 mr-lg-2 ml-2 ml-lg-0">{{ Auth::user()->name }} {{ Auth::user()->prename }}</span>
+                                        <i class="far fa-user-circle"></i>
+                                        <span class="px-1 mr-lg-2 ml-2 ml-lg-0">{{ Auth::user()->name }}
+                                            {{ Auth::user()->prename }}</span>
                                     </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a href="javascript:" class="dropdown-item" data-toggle="modal"
                                         data-target="#ViewProfile">
                                         {{-- <i class="feather icon-user text-muted"></i> &nbsp; My profile</a> --}}
-                                    {{-- <a href="javascript:" class="dropdown-item">
+                                        {{-- <a href="javascript:" class="dropdown-item">
                                         <i class="feather icon-mail text-muted"></i> &nbsp; Messages</a> --}}
-                                    {{-- <a href="javascript:" class="dropdown-item">
+                                        {{-- <a href="javascript:" class="dropdown-item">
                                         <i class="feather icon-settings text-muted"></i> &nbsp; Account settings</a> --}}
-                                    <div class="dropdown-divider"></div>
-                                    <a href="{{ route('logout') }}" class="dropdown-item">
-                                        <i class="feather icon-power text-danger"></i> &nbsp; Log Out</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="{{ route('logout') }}" class="dropdown-item">
+                                            <i class="feather icon-power text-danger"></i> &nbsp; Log Out</a>
                                 </div>
                             </div>
                         </div>
@@ -309,18 +309,20 @@
                 </nav>
                 <!-- [ Layout navbar ( Header ) ] End -->
                 {{-- content layout --}}
-                
+
                 @yield('content')
 
                 <nav class="layout-footer footer bg-white">
-                    <div class="container-fluid d-flex flex-wrap justify-content-between text-center container-p-x pb-3">
+                    <div
+                        class="container-fluid d-flex flex-wrap justify-content-between text-center container-p-x pb-3">
                         <div class="pt-3">
                             <span class="footer-text font-weight-semibold">&copy; <a href="http://star-labs.bj/"
                                     class="footer-link" target="_blank">PIGIER DOC - All right reserved</a></span>
                         </div>
                         <div>
                             {{-- <a href="javascript:" class="footer-link pt-3"></a> --}}
-                            <a href="#" class="footer-link pt-3 ml-4"><?php $Year = date('Y'); ?> {{ $Year }}</a>
+                            <a href="#" class="footer-link pt-3 ml-4"><?php $Year = date('Y'); ?>
+                                {{ $Year }}</a>
                             {{-- <a href="#" class="footer-link pt-3 ml-4">All right reserved</a> --}}
                             {{-- <a href="javascript:" class="footer-link pt-3 ml-4">Terms &amp; Conditions</a> --}}
                         </div>
@@ -337,7 +339,8 @@
     {{-- model profile user --}}
 
     <!-- Modal User-->
-    <div  style =" z-index: 1;" class="modal fade" id="ViewProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div style =" z-index: 1;" class="modal fade" id="ViewProfile" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -401,17 +404,24 @@
 
 
 
-    
-{{----------------------------------------------- datatable --}}
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    {{-- --------------------------------------------- datatable --}}
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js|https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
     {{-- <script src="{{ asset('assets/js/jquery-3.5.1.js') }}"></script> --}}
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="  https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+    <script src=" https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
 
-  <script src="  https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.bootstrap4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.jss"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.colVis.min.js"></script>
 
-  <script src=" https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
-  
 
     {{-- <script src="{{asset('assets/js/jquery-3.5.1.js') }}"></script> 
 
@@ -421,8 +431,8 @@
 
   <script src="{{'assets/js/datatable/dataTables.responsive.min.js'}}"></script> --}}
 
-  {{-- <script src="  https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script> --}}
-{{----------------------------------------------- datatable --}}
+    {{-- <script src="  https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script> --}}
+    {{-- --------------------------------------------- datatable --}}
 
     <!-- Core scripts -->
     <script src="{{ asset('assets/js/pace.js') }}"></script>
@@ -449,9 +459,19 @@
     {{-- hide message js --}}
     <script type="text/javascript">
         $(document).ready(function() {
-            var table = $('#example').DataTable({  "scrollX": true,  "order": []});
+            var table = $('#example').DataTable({
+                // "scrollX": true,
+                responsive: true,
+                "order": [],
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json" // Fichier de langue français pour DataTables
+                },
+                "buttons": [
+                    'copy', 'excel', 'pdf' // Boutons d'export disponibles
+                ]
+            });
             //var table = $('#example').DataTable({  responsive: true, "order": [] });
-          
+
             // Event listener to the two range filtering inputs to redraw on input
             $('#min, #max').keyup(function() {
                 table.draw();

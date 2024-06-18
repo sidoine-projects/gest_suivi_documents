@@ -25,7 +25,7 @@
 
             <div class="row">
 
-                <div class="col-md-10">
+                <div class="col-md-12">
                     <div class="card mb-4">
                         <h6 class="card-header"><i class="feather icon-user"></i> Liste des Demandes </h6>
 
@@ -34,6 +34,7 @@
                             <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
                                 <thead>
                                     <tr>
+                                        <th>Date</th>
                                         <th>N° Demande</th>
                                         <th>Pièce</th>
                                         <th>Description</th>
@@ -45,6 +46,7 @@
                                 <tbody>
                                     @foreach ($demandes as $item)
                                         <tr>
+                                            <td  style="text-transform: uppercase;"> {{ Carbon\Carbon::parse($item->created_at)->format('d/m/Y') }}</td>
                                             <td class="id" style="text-transform: uppercase;">{{ $item->numero }}</td>
                                             <td class="id" style="text-transform: uppercase;">{{ $item->piece->piece }}
                                             </td>
