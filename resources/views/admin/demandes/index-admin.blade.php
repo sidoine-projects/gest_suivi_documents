@@ -50,7 +50,7 @@
                                 <thead>
                                     <tr>
                                         <th>Date demande</th>
-                                        <th style="display: none;">id</th>
+                                        <th style="display: none !important;">id</th>
                                         <th>N° Demande</th>
                                         <th>Nom & Prénom</th>
                                         <th>Pièce</th>

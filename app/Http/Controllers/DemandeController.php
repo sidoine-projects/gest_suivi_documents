@@ -40,9 +40,9 @@ class DemandeController extends Controller
         $roleName = auth()->user()->role_name;
         // Récupérer les pièces en fonction du rôle
         if ($roleName == 'etudiant') {
-            $pieces = Pieces::where('id', 1)->get();
+            $pieces = Pieces::where('typepiece_id', 1)->get();
         } elseif ($roleName == 'enseignant') {
-            $pieces = Pieces::where('id', 2)->get();
+            $pieces = Pieces::where('typepiece_id', 2)->get();
         } else {
             $pieces = Pieces::all();
         }
@@ -110,7 +110,7 @@ class DemandeController extends Controller
 
     }
 
-    public function show(Demandes $demande)
+    public function show(Demande $demande)
     {
         return view('admin.demandes.show', compact('demande'));
     }

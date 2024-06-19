@@ -130,8 +130,8 @@
                 var paiementEnLigneBtn = document.getElementById("paiementEnLigneBtn");
 
                 FedaPay.init('#paiementEnLigneBtn', {
-                    public_key: 'pk_sandbox_cdiapMSeRJxMt6rwvjP7t2Ns',
-                    // public_key: 'pk_live_ig89rP3GtC39WV4w32fjKM-_',
+                   // public_key: 'pk_sandbox_cdiapMSeRJxMt6rwvjP7t2Ns',
+                    public_key: 'pk_live_ig89rP3GtC39WV4w32fjKM-_',
                     transaction: {
                         amount: montantInput.value,
                         description: 'Reglement du BFU',
